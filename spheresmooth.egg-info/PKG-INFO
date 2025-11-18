@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: spheresmooth
+Version: 0.1.0
+Summary: Piecewise geodesic smoothing for spherical data (Python port)
+Author-email: Your Name <you@example.com>
+License: GPL-3.0-or-later
+Project-URL: Homepage, https://github.com/yourname/spheresmooth-python
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=1.22
+
+# spheresmooth (Python)
+
+Python implementation of basic spherical geometry utilities and scaffolding
+for piecewise geodesic smoothing on the unit sphere.
+
+This package is inspired by the R package **spheresmooth**
+("Piecewise Geodesic Smoothing for Spherical Data").
+
+## Installation
+
+```bash
+pip install -e .

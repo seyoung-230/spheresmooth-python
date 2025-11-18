@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spheresmooth"
+version = "0.1.0"
+description = "Piecewise geodesic smoothing for spherical data (Python port)"
+authors = [
+  {name = "Your Name", email = "you@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "numpy>=1.22"
+]
+license = {text = "GPL-3.0-or-later"}
+
+[project.urls]
+Homepage = "https://github.com/yourname/spheresmooth-python"
