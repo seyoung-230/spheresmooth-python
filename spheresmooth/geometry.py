@@ -1,28 +1,67 @@
+"""
+geometry.py — Public spherical geometry utilities for spheresmooth
+
+이 모듈은 R 패키지 `spheresmooth`에서 export된 함수들과 동일한 기능을 제공한다.
+함수들은 사용자에게 노출되는 API이며, 내부 gradient/penalty 등 복잡한 계산은
+_internal.py 에 숨겨져 있다.
+
+제공 기능:
+- 기본 벡터 연산(dot, cross, norm2)
+- 벡터/행렬 정규화(normalize_lower, normalize)
+- 구면 거리(spherical_dist)
+- 지수 사상(exp_map, R 버전과 동일)
+- 지오데식 경로 계산(geodesic_lower, geodesic)
+- 조각별 지오데식(piecewise_geodesic)
+
+이 파일은 smoothing.py 와 직접 연동되며,
+R spheresmooth 의 piecewise geodesic 구조를 그대로 따른다.
+"""
+
 import numpy as np
 
+from ._internal import (
+    _Acos,
+)
 
-def dot(u: np.ndarray, v: np.ndarray) -> float:
-    """Compute the dot product of two vectors."""
-    u = np.asarray(u, dtype=float)
-    v = np.asarray(v, dtype=float)
+
+# ================================================================
+# Basic operations
+# ================================================================
+
+def dot(u, v):
+    """
+    Compute the dot product of two vectors.
+
+    Parameters
+    ----------
+    u, v : array-like (3,)
+        Input vectors.
+
+    Returns
+    -------
+    float
+        Dot product <u, v>.
+    """
+    u = np.asarray(u, float)
+    v = np.asarray(v, float)
     return float(np.dot(u, v))
 
 
 def cross(u: np.ndarray, v: np.ndarray, normalize_vec: bool = False) -> np.ndarray:
     """
-    Compute the cross product of two vectors.
+    Compute the cross product u × v.
 
     Parameters
     ----------
-    u, v : array-like, shape (3,)
+    u, v : array-like (3,)
         Input vectors.
-    normalize_vec : bool, default=False
+    normalize : bool, default=False
         If True, return the normalized cross product.
 
     Returns
     -------
-    w : ndarray, shape (3,)
-        Cross product vector (possibly normalized).
+    ndarray (3,)
+        Cross product vector.
     """
     u = np.asarray(u, dtype=float)
     v = np.asarray(v, dtype=float)
@@ -35,215 +74,253 @@ def cross(u: np.ndarray, v: np.ndarray, normalize_vec: bool = False) -> np.ndarr
     return w
 
 
-def norm2(u: np.ndarray) -> float:
-    """Compute the L2 (Euclidean) norm of a vector u."""
-    u = np.asarray(u, dtype=float)
-    return float(np.linalg.norm(u))
-
-
-import numpy as np
-
-def normalize(x: np.ndarray) -> np.ndarray:
+def norm2(u):
     """
-    Normalize a vector or a matrix row-wise using the L2 norm.
-
-    Parameters
-    ----------
-    x : array-like
-        Vector (shape (d,)) or matrix (shape (n, d)).
-
-    Returns
-    -------
-    ndarray
-        If input is a vector -> returns a normalized vector (d,).
-        If input is a matrix -> returns row-normalized matrix (n, d).
-        Zero vectors/rows remain unchanged.
-    """
-    arr = np.asarray(x, dtype=float)
-
-    # Case 1: vector input (1D)
-    if arr.ndim == 1:
-        n = np.linalg.norm(arr)
-        return arr if n == 0 else arr / n
-
-    # Case 2: matrix input (2D)
-    elif arr.ndim == 2:
-        norms = np.linalg.norm(arr, axis=1, keepdims=True)
-        norms = np.where(norms == 0, 1.0, norms)
-        return arr / norms
-
-    else:
-        raise ValueError("Input must be a 1D vector or 2D matrix.")
-
-
-def spherical_dist(x: np.ndarray, y: np.ndarray) -> float:
-    """
-    Calculate spherical distance between two vectors on the unit sphere.
-
-    Parameters
-    ----------
-    x, y : array-like, shape (3,)
+    Compute the L2 norm of a vector.
 
     Returns
     -------
     float
-        Geodesic distance on S^2, i.e. arccos(<x, y>).
     """
-    x = normalize(x)
-    y = normalize(y)
-    cos_val = np.clip(dot(x, y), -1.0, 1.0)
-    return float(np.arccos(cos_val))
+    u = np.asarray(u, float)
+    return float(np.linalg.norm(u))
 
 
-def exp_map(x: np.ndarray, v: np.ndarray) -> np.ndarray:
+# ================================================================
+# Normalization
+# ================================================================
+
+def normalize_lower(v):
     """
-    Exponential map on the unit sphere S^2.
+    Normalize a single vector using the L2 norm.
 
-    Given a base point x on S^2 and a tangent vector v in R^3,
-    returns exp_x(v) on the sphere.
+    This corresponds exactly to R's normalize_lower().
+
+    Zero vector remains unchanged.
 
     Parameters
     ----------
-    x : array-like, shape (3,)
-        Base point (should be on the unit sphere).
-    v : array-like, shape (3,)
-        Tangent vector at x (approximately orthogonal to x).
+    v : array-like (3,)
 
     Returns
     -------
-    ndarray, shape (3,)
-        Point on the unit sphere.
+    ndarray (3,)
     """
-    x = normalize(x)
-    v = np.asarray(v, dtype=float)
+    v = np.asarray(v, float)
+    n = np.linalg.norm(v)
+    return v if n == 0 else v / n
 
-    # Remove radial component to keep v tangent to the sphere
-    v = v - dot(v, x) * x
-    norm_v = np.linalg.norm(v)
-    if norm_v == 0:
+
+def normalize(X):
+    """
+    Normalize a vector OR each row of a matrix.
+
+    Matches R's normalize() which uses apply(x, 1, normalize_lower).
+
+    Parameters
+    ----------
+    X : array-like
+        Vector (d,) or matrix (n, d)
+
+    Returns
+    -------
+    ndarray
+        Normalized vector or row-normalized matrix.
+    """
+    X = np.asarray(X, float)
+
+    if X.ndim == 1:
+        return normalize_lower(X)
+
+    out = np.zeros_like(X)
+    for i in range(X.shape[0]):
+        out[i] = normalize_lower(X[i])
+    return out
+
+
+# ================================================================
+# Spherical distance (export)
+# ================================================================
+
+def spherical_dist(x, y):
+    """
+    Spherical distance between x and y on the unit sphere:
+        dist(x, y) = Acos(<x, y>)
+
+    Parameters
+    ----------
+    x, y : array-like (3,)
+
+    Returns
+    -------
+    float
+        Geodesic distance in radians.
+    """
+    x = normalize_lower(x)
+    y = normalize_lower(y)
+    return float(_Acos(dot(x, y)))
+
+
+# ================================================================
+# Exponential map (export)
+# ================================================================
+
+def exp_map(x, v):
+    """
+    Exponential map on S^2.
+
+    R version:
+        if sum(v^2) == 0: return(x)
+        Exp = cos(norm_v) * x + sin(norm_v) * v / norm_v
+
+    R 패키지 특성을 고려해 tangent-plane projection은 수행하지 않는다.
+
+    Parameters
+    ----------
+    x : array-like (3,)
+    v : array-like (3,)
+
+    Returns
+    -------
+    ndarray (3,)
+    """
+    x = normalize_lower(x)
+    v = np.asarray(v, float)
+
+    if np.sum(v * v) == 0:
         return x
 
-    v_unit = v / norm_v
-    return np.cos(norm_v) * x + np.sin(norm_v) * v_unit
+    nv = np.linalg.norm(v)
+    return np.cos(nv) * x + np.sin(nv) * v / nv
 
 
-import numpy as np
+# ================================================================
+# Geodesic (export, uses internal)
+# ================================================================
 
-def geodesic(t,
-             p: np.ndarray,
-             q: np.ndarray,
-             a: float,
-             b: float) -> np.ndarray:
+def geodesic_lower(t, p, q, a, b):
     """
-    Compute points along the geodesic on S^2 connecting p and q
-    at time points t in [a, b].  Accepts scalar or array input.
+    Compute a single geodesic point on S^2 between points p and q
+    at a specific time t ∈ [a, b].
+
+    This follows the R implementation exactly:
+        n = cross(p, q, normalize=TRUE)
+        w = cross(n, p, normalize=TRUE)
+        theta(t) = dist(p,q) * (t - a) / (b - a)
+        gamma = p * cos(theta) + w * sin(theta)
 
     Parameters
     ----------
-    t : float or array-like
-        Time point(s). Can be scalar or array-like.
-    p, q : array-like, shape (3,)
+    t : float
+        Time scalar.
+    p, q : array-like (3,)
         Endpoints on the sphere.
     a, b : float
-        Start and end time of the geodesic segment.
+        Start and end times.
 
     Returns
     -------
-    gamma : ndarray
-        If t is scalar, returns shape (3,).
-        If t is array-like, returns shape (len(t), 3).
+    ndarray (3,)
+        A single point on S^2.
     """
-    # detect whether input is scalar
-    scalar_input = np.isscalar(t)
-
-    # convert to array for unified processing
-    t = np.atleast_1d(t).astype(float)
 
     p = normalize(p)
     q = normalize(q)
 
-    if a == b:
-        # degenerate: return p
-        gamma = np.tile(p, (t.size, 1))
-        return gamma[0] if scalar_input else gamma
+    omega = spherical_dist(p, q)
+    if omega < 1e-12:
+        return p.copy()
 
-    # parameter s ∈ [0, 1]
     s = (t - a) / (b - a)
     s = np.clip(s, 0.0, 1.0)
 
-    cos_omega = np.clip(dot(p, q), -1.0, 1.0)
-    omega = np.arccos(cos_omega)
+    coef_p = np.sin((1 - s) * omega) / np.sin(omega)
+    coef_q = np.sin(s * omega) / np.sin(omega)
 
-    # p ≈ q → linear interpolation + normalization
-    if omega < 1e-8:
-        gamma = (1 - s)[:, None] * p + s[:, None] * q
-        gamma = normalize(gamma)
-        return gamma[0] if scalar_input else gamma
-
-    sin_omega = np.sin(omega)
-
-    coef_p = np.sin((1 - s) * omega) / sin_omega
-    coef_q = np.sin(s * omega) / sin_omega
-
-    gamma = coef_p[:, None] * p + coef_q[:, None] * q
-    gamma = normalize(gamma)
-
-    return gamma[0] if scalar_input else gamma
+    gamma = coef_p * p + coef_q * q
+    return normalize(gamma)
 
 
-
-def piecewise_geodesic(t: np.ndarray,
-                       control_points: np.ndarray,
-                       knots: np.ndarray) -> np.ndarray:
+def geodesic(t, p, q, a, b):
     """
-    Compute a piecewise geodesic path between control points.
-
-    Parameters
-    ----------
-    t : array-like, shape (n,)
-        Time points.
-    control_points : ndarray, shape (m, 3)
-        Control points on the sphere. Each row is a control point.
-    knots : ndarray, shape (m,)
-        Knot values defining the segments. Typically increasing.
-
-    Returns
-    -------
-    gamma : ndarray, shape (n, 3)
-        Piecewise geodesic path evaluated at t.
+    Compute geodesic on S2 between p and q at times t ∈ [a,b].
     """
-    t = np.asarray(t, dtype=float)
-    cp = np.asarray(control_points, dtype=float)
-    knots = np.asarray(knots, dtype=float)
+    # scalar input → return (3,)
+    if np.isscalar(t):
+        t = float(t)
+        p = normalize(p)
+        q = normalize(q)
 
-    if cp.ndim != 2 or cp.shape[1] != 3:
-        raise ValueError("control_points must have shape (m, 3).")
-    if knots.ndim != 1 or knots.size != cp.shape[0]:
-        raise ValueError("knots must be a 1D array of length equal to the number of control points.")
-    if np.any(np.diff(knots) < 0):
-        raise ValueError("knots must be non-decreasing.")
+        dist_pq = spherical_dist(p, q)
+        if dist_pq < 1e-12:
+            return p.copy()
 
-    m = cp.shape[0]
-    n = t.size
-    gamma = np.zeros((n, 3), dtype=float)
+        theta = dist_pq * (t - a) / (b - a)
 
-    # For each segment [knots[i], knots[i+1]] between cp[i] and cp[i+1]
-    for i in range(m - 1):
-        a = knots[i]
-        b = knots[i + 1]
-        mask = (t >= a) & (t <= b) if i < m - 2 else (t >= a) & (t <= b + 1e-12)
-        if not np.any(mask):
+        # compute w = (n × p)
+        n = np.cross(p, q)
+        n_norm = np.linalg.norm(n)
+        if n_norm < 1e-12:
+            return p.copy()
+        n = n / n_norm
+        w = np.cross(n, p)
+        w = w / np.linalg.norm(w)
+
+        gamma = np.cos(theta) * p + np.sin(theta) * w
+        return normalize(gamma)
+
+    # vector input → apply geodesic_lower to each t
+    t = np.asarray(t, float)
+    out = np.zeros((len(t), 3))
+    for i, ti in enumerate(t):
+        out[i] = geodesic_lower(ti, p, q, a, b)
+    return out
+
+
+
+# ================================================================
+# Piecewise geodesic
+# ================================================================
+
+def piecewise_geodesic(t, control_points, knots):
+    """
+    Replicates EXACT R behavior of piecewise_geodesic():
+    - Iterate segments j = 1..K-1
+    - For each segment, take t satisfying knots[j] <= t < knots[j+1]
+    - Compute geodesic_lower for each t_sub in order
+    - Append in the same order (rbind in R)
+    - Does NOT reorder gamma to match global t order
+    """
+
+    t = np.asarray(t, float)
+    cp = np.asarray(control_points, float)
+    knots = np.asarray(knots, float)
+
+    K = cp.shape[0]
+    gamma_list = []
+
+    for j in range(K - 1):
+        a = knots[j]
+        b = knots[j + 1]
+
+        mask = (t >= a) & (t < b)
+        t_sub = t[mask]
+
+        if t_sub.size == 0:
             continue
 
-        gamma[mask, :] = geodesic(t[mask], cp[i, :], cp[i + 1, :], a, b)
+        # R: geodesic(t_sub, ...)
+        piece_gamma = geodesic(
+            t_sub,
+            cp[j],
+            cp[j+1],
+            a,
+            b
+        )
 
-    # For t outside the knot range, extend using end control points
-    min_k, max_k = knots[0], knots[-1]
-    before_mask = t < min_k
-    after_mask = t > max_k
-    if np.any(before_mask):
-        gamma[before_mask, :] = cp[0, :]
-    if np.any(after_mask):
-        gamma[after_mask, :] = cp[-1, :]
+        gamma_list.append(piece_gamma)
 
-    return normalize(gamma)
+    if len(gamma_list) == 0:
+        return np.zeros((0,3))
+
+    return np.vstack(gamma_list)

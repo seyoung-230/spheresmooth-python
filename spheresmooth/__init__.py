@@ -1,8 +1,7 @@
-
 """
-spheresmooth: basic spherical geometry and piecewise geodesic paths.
+spheresmooth: Piecewise geodesic smoothing for spherical data (Python version)
 
-This is a Python scaffolding for methods similar to the R package `spheresmooth`.
+This package is a full Python port of the R package `spheresmooth`.
 """
 
 from .coords import (
@@ -10,23 +9,28 @@ from .coords import (
     spherical_to_cartesian,
     edp,
 )
+
 from .geometry import (
     dot,
     cross,
     norm2,
     normalize,
+    normalize_lower,     
     spherical_dist,
     exp_map,
     geodesic,
+    geodesic_lower,      
     piecewise_geodesic,
 )
+
 from .smoothing import (
     calculate_loss,
     knots_quantile,
     penalized_linear_spherical_spline,
 )
 
-from .datasets import load_apw
+from .data import load_apw
+
 
 __all__ = [
     # coords
@@ -49,5 +53,5 @@ __all__ = [
     "knots_quantile",
     "penalized_linear_spherical_spline",
     # datasets
-    "load_apw"
+    "load_apw",
 ]

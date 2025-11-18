@@ -1,8 +1,9 @@
 README.md
 pyproject.toml
 spheresmooth/__init__.py
+spheresmooth/_internal.py
 spheresmooth/coords.py
-spheresmooth/datasets.py
+spheresmooth/data.py
 spheresmooth/geometry.py
 spheresmooth/smoothing.py
 spheresmooth.egg-info/PKG-INFO
