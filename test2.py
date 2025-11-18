@@ -22,6 +22,7 @@ knots = np.array([1, 2, 3, 3.5])
 t = np.linspace(0, 4, 1000)
 curve = piecewise_geodesic(t, control_points, knots)
 
+
 # --- sphere mesh ---
 u = np.linspace(0, 2*np.pi, 60)
 v = np.linspace(0, np.pi, 30)
@@ -32,7 +33,12 @@ z = np.outer(np.ones_like(u), np.cos(v))
 # --- plot ---
 fig = go.Figure()
 
-fig.add_surface(x=x, y=y, z=z, opacity=0.05, colorscale="Greys")
+fig.update_layout(
+    scene=dict(aspectmode='data'),
+    title="Sphere with Latitude/Longitude Lines"
+)
+
+fig.add_surface(x=x, y=y, z=z, opacity=0.1, colorscale="Greys")
 
 fig.add_trace(go.Scatter3d(
     x=control_points[:,0],
@@ -49,6 +55,41 @@ fig.add_trace(go.Scatter3d(
     mode='lines',
     line=dict(color='red', width=5)
 ))
+
+# ----- Latitude lines (위도선) -----
+lat_values = np.linspace(-60, 60, 8)  # degrees
+
+for lat in lat_values:
+    phi = np.radians(lat)
+    u = np.linspace(0, 2*np.pi, 200)
+    x_lat = np.cos(u) * np.cos(phi)
+    y_lat = np.sin(u) * np.cos(phi)
+    z_lat = np.ones_like(u) * np.sin(phi)
+
+    fig.add_trace(go.Scatter3d(
+        x=x_lat, y=y_lat, z=z_lat,
+        mode='lines',
+        line=dict(color='gray', width=2),
+        showlegend=False
+    ))
+
+# ----- Longitude lines (경도선) -----
+lon_values = np.linspace(0, 330, 10)  # degrees
+
+for lon in lon_values:
+    lam = np.radians(lon)
+    v = np.linspace(-np.pi/2, np.pi/2, 200)
+    x_lon = np.cos(v) * np.cos(lam)
+    y_lon = np.cos(v) * np.sin(lam)
+    z_lon = np.sin(v)
+
+    fig.add_trace(go.Scatter3d(
+        x=x_lon, y=y_lon, z=z_lon,
+        mode='lines',
+        line=dict(color='gray', width=2),
+        showlegend=False
+    ))
+
 
 fig.update_layout(
     scene=dict(aspectmode='data'),

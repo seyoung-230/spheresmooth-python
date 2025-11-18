@@ -2,6 +2,7 @@ README.md
 pyproject.toml
 spheresmooth/__init__.py
 spheresmooth/coords.py
+spheresmooth/datasets.py
 spheresmooth/geometry.py
 spheresmooth/smoothing.py
 spheresmooth.egg-info/PKG-INFO
@@ -9,3 +10,4 @@ spheresmooth.egg-info/SOURCES.txt
 spheresmooth.egg-info/dependency_links.txt
 spheresmooth.egg-info/requires.txt
 spheresmooth.egg-info/top_level.txt
+spheresmooth/data/apw.csv

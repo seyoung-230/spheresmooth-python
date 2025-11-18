@@ -18,3 +18,6 @@ license = {text = "GPL-3.0-or-later"}
 
 [project.urls]
 Homepage = "https://github.com/yourname/spheresmooth-python"
+
+[tool.setuptools.package-data]
+spheresmooth = ["data/*.csv"]

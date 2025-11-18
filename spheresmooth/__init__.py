@@ -26,6 +26,8 @@ from .smoothing import (
     penalized_linear_spherical_spline,
 )
 
+from .datasets import load_apw
+
 __all__ = [
     # coords
     "cartesian_to_spherical",
@@ -46,4 +48,6 @@ __all__ = [
     "calculate_loss",
     "knots_quantile",
     "penalized_linear_spherical_spline",
+    # datasets
+    "load_apw"
 ]
