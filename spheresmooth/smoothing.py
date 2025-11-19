@@ -27,23 +27,16 @@ def calculate_loss(y: np.ndarray, gamma: np.ndarray) -> float:
     float
         Loss value (sum of squared spherical distances).
     """
-    y = np.asarray(y, dtype=float)
-    gamma = np.asarray(gamma, dtype=float)
+    y = np.asarray(y, float)
+    gamma = np.asarray(gamma, float)
+    
+    dists = np.array([
+        spherical_dist(y[i], gamma[i])**2
+        for i in range(y.shape[0])
+    ])
 
-    if y.shape != gamma.shape:
-        raise ValueError("y and gamma must have the same shape.")
+    return 0.5 * np.sum(dists)
 
-    if y.ndim != 2 or y.shape[1] != 3:
-        raise ValueError("y and gamma must have shape (n, 3).")
-
-    y = normalize(y)
-    gamma = normalize(gamma)
-
-    dists = np.array([spherical_dist(y[i], gamma[i]) for i in range(y.shape[0])])
-    return float(np.sum(dists ** 2))
-
-
-import numpy as np
 
 def knots_quantile(x: np.ndarray, dimension: int, tiny: float = 1e-5) -> np.ndarray:
     """
@@ -137,8 +130,8 @@ def penalized_linear_spherical_spline(
 
         # R: seq(1, n, length=dimension)
         # Python 동일: float → round → int index
-        idx_float = np.linspace(0, n - 1, num=dimension)
-        idx = np.round(idx_float).astype(int)
+        idx_float = np.linspace(1, n, num=dimension)
+        idx = np.floor(idx_float - 1).astype(int)
 
         control_points = y[idx].copy()
 

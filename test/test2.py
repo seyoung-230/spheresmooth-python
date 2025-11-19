@@ -19,7 +19,7 @@ control_points = np.array([
 knots = np.array([1, 2, 3, 3.5]) 
 
 # --- compute curve ---
-t = np.linspace(0, 4, 1000)
+t = np.linspace(0, 4, 200)
 curve = piecewise_geodesic(t, control_points, knots)
 
 

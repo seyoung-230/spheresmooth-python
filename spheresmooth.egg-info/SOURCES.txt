@@ -12,3 +12,8 @@ spheresmooth.egg-info/dependency_links.txt
 spheresmooth.egg-info/requires.txt
 spheresmooth.egg-info/top_level.txt
 spheresmooth/data/apw.csv
+spheresmooth/data/goni.csv
+test/test.py
+test/test2.py
+test/test3_apw.py
+test/test4_goni.py

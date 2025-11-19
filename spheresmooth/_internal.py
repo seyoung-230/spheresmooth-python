@@ -20,10 +20,6 @@ def _Asin(x):
 
 
 def _Atan(y, x):
-    """
-    R의 Atan(y, x) 구현을 그대로 따른 버전.
-    python의 atan2와 달리 quadrant rules를 명시적으로 처리.
-    """
     y = np.asarray(y, float)
     x = np.asarray(x, float)
     out = np.zeros_like(y)

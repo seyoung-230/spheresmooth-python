@@ -1,4 +1,4 @@
-spheresmooth.data
+﻿spheresmooth.data
 =================
 
 .. automodule:: spheresmooth.data
@@ -9,4 +9,5 @@ spheresmooth.data
    .. autosummary::
    
       load_apw
+      load_goni
    

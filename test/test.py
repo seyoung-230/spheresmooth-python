@@ -13,3 +13,4 @@ xyz = spherical_to_cartesian(theta_phi)
 
 print("변환된 Cartesian 좌표:")
 print(xyz)
+

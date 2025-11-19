@@ -29,7 +29,9 @@ from .smoothing import (
     penalized_linear_spherical_spline,
 )
 
-from .data import load_apw
+from .data import (load_apw,
+                   load_goni,
+)
 
 
 __all__ = [
@@ -54,4 +56,5 @@ __all__ = [
     "penalized_linear_spherical_spline",
     # datasets
     "load_apw",
+    "load_goni",
 ]

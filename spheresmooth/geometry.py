@@ -224,52 +224,34 @@ def geodesic_lower(t, p, q, a, b):
         A single point on S^2.
     """
 
-    p = normalize(p)
-    q = normalize(q)
+    p = np.asarray(p, float)
+    q = np.asarray(q, float)
 
-    omega = spherical_dist(p, q)
-    if omega < 1e-12:
+    # Calculate theta (distance)
+    theta_total = spherical_dist(p, q)
+    theta = theta_total * (t - a) / (b - a)
+
+    # n = normalize(cross(p, q))
+    n = cross(p, q, normalize_vec=True)
+    if np.linalg.norm(n) < 1e-12:
         return p.copy()
 
-    s = (t - a) / (b - a)
-    s = np.clip(s, 0.0, 1.0)
+    # w = normalize(cross(n, p))
+    w = cross(n, p, normalize_vec=True)
 
-    coef_p = np.sin((1 - s) * omega) / np.sin(omega)
-    coef_q = np.sin(s * omega) / np.sin(omega)
+    # gamma = p*cos(theta) + w*sin(theta)
+    gamma = p * np.cos(theta) + w * np.sin(theta)
 
-    gamma = coef_p * p + coef_q * q
-    return normalize(gamma)
+    return gamma
 
 
 def geodesic(t, p, q, a, b):
     """
     Compute geodesic on S2 between p and q at times t ∈ [a,b].
     """
-    # scalar input → return (3,)
     if np.isscalar(t):
-        t = float(t)
-        p = normalize(p)
-        q = normalize(q)
-
-        dist_pq = spherical_dist(p, q)
-        if dist_pq < 1e-12:
-            return p.copy()
-
-        theta = dist_pq * (t - a) / (b - a)
-
-        # compute w = (n × p)
-        n = np.cross(p, q)
-        n_norm = np.linalg.norm(n)
-        if n_norm < 1e-12:
-            return p.copy()
-        n = n / n_norm
-        w = np.cross(n, p)
-        w = w / np.linalg.norm(w)
-
-        gamma = np.cos(theta) * p + np.sin(theta) * w
-        return normalize(gamma)
-
-    # vector input → apply geodesic_lower to each t
+        return geodesic_lower(float(t), p, q, a, b)
+    
     t = np.asarray(t, float)
     out = np.zeros((len(t), 3))
     for i, ti in enumerate(t):
