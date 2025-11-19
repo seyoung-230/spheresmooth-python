@@ -44,6 +44,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'api';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="spheresmooth" href="generated/spheresmooth.html" />
     <link rel="prev" title="spheresmooth documentation" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="python"/>
@@ -235,7 +236,17 @@
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"></div>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="generated/spheresmooth.html">spheresmooth</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="generated/spheresmooth.coords.html">spheresmooth.coords</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/spheresmooth.data.html">spheresmooth.data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/spheresmooth.geometry.html">spheresmooth.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="generated/spheresmooth.smoothing.html">spheresmooth.smoothing</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="generated/spheresmooth.coords.html">spheresmooth.coords</a></li>
+</ul>
+</div>
 </nav></div>
     </div>
   
@@ -291,299 +302,19 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="module-spheresmooth">
-<span id="api-reference"></span><h1>API Reference<a class="headerlink" href="#module-spheresmooth" title="Link to this heading">#</a></h1>
-<p>spheresmooth: basic spherical geometry and piecewise geodesic paths.</p>
-<p>This is a Python scaffolding for methods similar to the R package <cite>spheresmooth</cite>.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.calculate_loss">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">calculate_loss</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#spheresmooth.calculate_loss" title="Link to this definition">#</a></dt>
-<dd><p>Calculate loss based on squared spherical distances
-between observed values and predicted values on the curve.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>y</strong> (<em>ndarray</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>3</em><em>)</em>) -- Observed points on the sphere (Cartesian).</p></li>
-<li><p><strong>gamma</strong> (<em>ndarray</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>3</em><em>)</em>) -- Predicted points on the sphere (Cartesian).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Loss value (sum of squared spherical distances).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.cartesian_to_spherical">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">cartesian_to_spherical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byrow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#spheresmooth.cartesian_to_spherical" title="Link to this definition">#</a></dt>
-<dd><p>Convert Cartesian coordinates to spherical coordinates (theta, phi).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>3</em><em>) or </em><em>(</em><em>3</em><em>, </em><em>n</em><em>)</em>) -- Points in Cartesian coordinates (x, y, z).</p></li>
-<li><p><strong>byrow</strong> (<em>bool</em><em>, </em><em>default=True</em>) -- If True, rows are points. If False, columns are points.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>theta_phi</strong> -- Spherical coordinates (theta, phi) with:
-- theta in [0, pi]   (inclination from +z)
-- phi   in [0, 2*pi) (azimuth)</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray, shape (n, 2)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.cross">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">cross</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_vec</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#spheresmooth.cross" title="Link to this definition">#</a></dt>
-<dd><p>Compute the cross product of two vectors.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>u</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) -- Input vectors.</p></li>
-<li><p><strong>v</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) -- Input vectors.</p></li>
-<li><p><strong>normalize_vec</strong> (<em>bool</em><em>, </em><em>default=False</em>) -- If True, return the normalized cross product.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>w</strong> -- Cross product vector (possibly normalized).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray, shape (3,)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.dot">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">dot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#spheresmooth.dot" title="Link to this definition">#</a></dt>
-<dd><p>Compute the dot product of two vectors.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.edp">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">edp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#spheresmooth.edp" title="Link to this definition">#</a></dt>
-<dd><p>Equal-distance projection of a point on the unit sphere onto the xy-plane.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The exact projection formula used in the R implementation can be
-matched later. For now, this function returns a simple orthographic
-projection onto the xy-plane, i.e. (x, y).</p>
+  <section id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading">#</a></h1>
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/spheresmooth.html#module-spheresmooth" title="spheresmooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spheresmooth</span></code></a></p></td>
+<td><p>spheresmooth: Piecewise geodesic smoothing for spherical data (Python version)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/spheresmooth.coords.html#module-spheresmooth.coords" title="spheresmooth.coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spheresmooth.coords</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>p</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) -- Point on (or near) the unit sphere.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>projected</strong> -- Projected point in the plane.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray, shape (2,)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.exp_map">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">exp_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#spheresmooth.exp_map" title="Link to this definition">#</a></dt>
-<dd><p>Exponential map on the unit sphere S^2.</p>
-<p>Given a base point x on S^2 and a tangent vector v in R^3,
-returns exp_x(v) on the sphere.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) -- Base point (should be on the unit sphere).</p></li>
-<li><p><strong>v</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) -- Tangent vector at x (approximately orthogonal to x).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Point on the unit sphere.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray, shape (3,)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.geodesic">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">geodesic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#spheresmooth.geodesic" title="Link to this definition">#</a></dt>
-<dd><p>Compute points along the geodesic on S^2 connecting p and q
-at time points t in [a, b].  Accepts scalar or array input.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>float</em><em> or </em><em>array-like</em>) -- Time point(s). Can be scalar or array-like.</p></li>
-<li><p><strong>p</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) -- Endpoints on the sphere.</p></li>
-<li><p><strong>q</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>) -- Endpoints on the sphere.</p></li>
-<li><p><strong>a</strong> (<em>float</em>) -- Start and end time of the geodesic segment.</p></li>
-<li><p><strong>b</strong> (<em>float</em>) -- Start and end time of the geodesic segment.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>gamma</strong> -- If t is scalar, returns shape (3,).
-If t is array-like, returns shape (len(t), 3).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.knots_quantile">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">knots_quantile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tiny</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-05</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#spheresmooth.knots_quantile" title="Link to this definition">#</a></dt>
-<dd><p>Generate knots for the piecewise geodesic curve based on quantiles.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array-like</em>) -- Numeric vector representing time points.</p></li>
-<li><p><strong>dimension</strong> (<em>int</em>) -- Number of knots.</p></li>
-<li><p><strong>tiny</strong> (<em>float</em><em>, </em><em>default=1e-5</em>) -- Small constant to slightly expand the boundary.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>knots</strong> -- Knot positions in the time domain.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray, shape (dimension,)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.norm2">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">norm2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#spheresmooth.norm2" title="Link to this definition">#</a></dt>
-<dd><p>Compute the L2 (Euclidean) norm of a vector u.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.normalize">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">normalize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#spheresmooth.normalize" title="Link to this definition">#</a></dt>
-<dd><p>Normalize a vector or a matrix row-wise using the L2 norm.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array-like</em>) -- Vector (shape (d,)) or matrix (shape (n, d)).</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>If input is a vector -&gt; returns a normalized vector (d,).
-If input is a matrix -&gt; returns row-normalized matrix (n, d).
-Zero vectors/rows remain unchanged.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.penalized_linear_spherical_spline">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">penalized_linear_spherical_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_control_points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_knots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambdas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxiter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">jump_eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#spheresmooth.penalized_linear_spherical_spline" title="Link to this definition">#</a></dt>
-<dd><p>Penalized linear spherical spline (scaffolding).</p>
-<p>This function is intended to fit a penalized piecewise geodesic curve
-to spherical data, similarly to the R function
-<cite>penalized_linear_spherical_spline</cite> in the spheresmooth package.</p>
-<p>For now, this implementation only sets up the interface and basic checks.
-The full Riemannian optimization algorithm should be implemented here.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>ndarray</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>,</em><em>)</em>) -- Time or location.</p></li>
-<li><p><strong>y</strong> (<em>ndarray</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>3</em><em>)</em>) -- Data points on the sphere (Cartesian).</p></li>
-<li><p><strong>initial_control_points</strong> (<em>ndarray</em><em> or </em><em>None</em>) -- Optional initial control points.</p></li>
-<li><p><strong>dimension</strong> (<em>int</em><em> or </em><em>None</em>) -- Dimension of the spline (number of control points).
-Required if <cite>initial_control_points</cite> is None.</p></li>
-<li><p><strong>initial_knots</strong> (<em>ndarray</em><em> or </em><em>None</em>) -- Optional initial knot vector. If None, it can be generated
-from <cite>knots_quantile</cite>.</p></li>
-<li><p><strong>lambdas</strong> (<em>ndarray</em><em> or </em><em>None</em>) -- Penalization parameters.</p></li>
-<li><p><strong>step_size</strong> -- Optimization controls (not yet used).</p></li>
-<li><p><strong>maxiter</strong> -- Optimization controls (not yet used).</p></li>
-<li><p><strong>epsilon_iter</strong> -- Optimization controls (not yet used).</p></li>
-<li><p><strong>jump_eps</strong> -- Optimization controls (not yet used).</p></li>
-<li><p><strong>verbose</strong> -- Optimization controls (not yet used).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Placeholder structure, expected to contain:
-- &quot;fits&quot;: list of fit objects (one per lambda)
-- &quot;bic_list&quot;: list/array of BIC values</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
-<p class="rubric">Notes</p>
-<p>TODO: Implement the full coordinate-wise gradient descent /
-Riemannian block coordinate descent algorithm described in the
-associated paper.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.piecewise_geodesic">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">piecewise_geodesic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">control_points</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">knots</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#spheresmooth.piecewise_geodesic" title="Link to this definition">#</a></dt>
-<dd><p>Compute a piecewise geodesic path between control points.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>t</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>,</em><em>)</em>) -- Time points.</p></li>
-<li><p><strong>control_points</strong> (<em>ndarray</em><em>, </em><em>shape</em><em> (</em><em>m</em><em>, </em><em>3</em><em>)</em>) -- Control points on the sphere. Each row is a control point.</p></li>
-<li><p><strong>knots</strong> (<em>ndarray</em><em>, </em><em>shape</em><em> (</em><em>m</em><em>,</em><em>)</em>) -- Knot values defining the segments. Typically increasing.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>gamma</strong> -- Piecewise geodesic path evaluated at t.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray, shape (n, 3)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.spherical_dist">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">spherical_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#spheresmooth.spherical_dist" title="Link to this definition">#</a></dt>
-<dd><p>Calculate spherical distance between two vectors on the unit sphere.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>)</p></li>
-<li><p><strong>y</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>3</em><em>,</em><em>)</em>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Geodesic distance on S^2, i.e. arccos(&lt;x, y&gt;).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="spheresmooth.spherical_to_cartesian">
-<span class="sig-prename descclassname"><span class="pre">spheresmooth.</span></span><span class="sig-name descname"><span class="pre">spherical_to_cartesian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta_phi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">byrow</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#spheresmooth.spherical_to_cartesian" title="Link to this definition">#</a></dt>
-<dd><p>Convert spherical coordinates (theta, phi) to Cartesian coordinates (x, y, z).</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>theta_phi</strong> (<em>array-like</em><em>, </em><em>shape</em><em> (</em><em>n</em><em>, </em><em>2</em><em>) or </em><em>(</em><em>2</em><em>, </em><em>n</em><em>)</em>) -- Each row: (theta, phi), with theta in [0, pi], phi in [0, 2*pi).</p></li>
-<li><p><strong>byrow</strong> (<em>bool</em><em>, </em><em>default=True</em>) -- If True, rows are points. If False, columns are points.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>xyz</strong> -- Cartesian coordinates on the unit sphere.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>ndarray, shape (n, 3)</p>
-</dd>
-</dl>
-</dd></dl>
-
 </section>
 
 
@@ -600,31 +331,6 @@ associated paper.</p>
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.calculate_loss"><code class="docutils literal notranslate"><span class="pre">calculate_loss()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.cartesian_to_spherical"><code class="docutils literal notranslate"><span class="pre">cartesian_to_spherical()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.cross"><code class="docutils literal notranslate"><span class="pre">cross()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.dot"><code class="docutils literal notranslate"><span class="pre">dot()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.edp"><code class="docutils literal notranslate"><span class="pre">edp()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.exp_map"><code class="docutils literal notranslate"><span class="pre">exp_map()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.geodesic"><code class="docutils literal notranslate"><span class="pre">geodesic()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.knots_quantile"><code class="docutils literal notranslate"><span class="pre">knots_quantile()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.norm2"><code class="docutils literal notranslate"><span class="pre">norm2()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.normalize"><code class="docutils literal notranslate"><span class="pre">normalize()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.penalized_linear_spherical_spline"><code class="docutils literal notranslate"><span class="pre">penalized_linear_spherical_spline()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.piecewise_geodesic"><code class="docutils literal notranslate"><span class="pre">piecewise_geodesic()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.spherical_dist"><code class="docutils literal notranslate"><span class="pre">spherical_dist()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spheresmooth.spherical_to_cartesian"><code class="docutils literal notranslate"><span class="pre">spherical_to_cartesian()</span></code></a></li>
-</ul>
-  </nav></div>
 
   <div class="sidebar-secondary-item">
   <div role="note" aria-label="source link">

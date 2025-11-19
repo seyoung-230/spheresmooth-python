@@ -1,7 +1,11 @@
 API Reference
 =============
 
-.. automodule:: spheresmooth
-    :members:
-    :undoc-members:
-    :show-inheritance:
+.. autosummary::
+   :toctree: generated
+   :recursive:
+
+   spheresmooth
+   spheresmooth.coords
+   spheresmooth.geo
+   spheresmooth.kernel
