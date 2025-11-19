@@ -1,20 +1,18 @@
 """
 geometry.py — Public spherical geometry utilities for spheresmooth
 
-이 모듈은 R 패키지 `spheresmooth`에서 export된 함수들과 동일한 기능을 제공한다.
-함수들은 사용자에게 노출되는 API이며, 내부 gradient/penalty 등 복잡한 계산은
-_internal.py 에 숨겨져 있다.
+This module provides the same functionality as the exported functions in the R package spheresmooth.
+The functions here define the public-facing API, while internal components such as gradient and penalty computations are encapsulated inside _internal.py.
 
-제공 기능:
-- 기본 벡터 연산(dot, cross, norm2)
-- 벡터/행렬 정규화(normalize_lower, normalize)
-- 구면 거리(spherical_dist)
-- 지수 사상(exp_map, R 버전과 동일)
-- 지오데식 경로 계산(geodesic_lower, geodesic)
-- 조각별 지오데식(piecewise_geodesic)
+Features provided:
+- Basic vector operations (dot, cross, norm2)
+- Vector/matrix normalization (normalize_lower, normalize)
+- Spherical distance computation (spherical_dist)
+- Exponential map (exp_map, identical to the R version)
+- Geodesic path computation (geodesic_lower, geodesic)
+- Piecewise geodesic construction (piecewise_geodesic)
 
-이 파일은 smoothing.py 와 직접 연동되며,
-R spheresmooth 의 piecewise geodesic 구조를 그대로 따른다.
+This module works closely with smoothing.py and follows the same piecewise-geodesic structure as the original R implementation in spheresmooth.
 """
 
 import numpy as np

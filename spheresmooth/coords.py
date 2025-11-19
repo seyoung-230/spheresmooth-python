@@ -1,3 +1,24 @@
+"""
+coords.py — Public coordinate transformation utilities for spheresmooth
+
+This module provides the same functionality as the exported coordinate
+transformation functions in the R package spheresmooth. The functions
+here define the public-facing API for converting between Cartesian and
+spherical coordinates and performing equal-distance projection (EDP). 
+All lower-level geometric or optimization-related computations are
+encapsulated inside internal modules such as _internal.py and geometry.py.
+
+Features provided:
+- Conversion between Cartesian and spherical coordinates (cartesian_to_spherical, spherical_to_cartesian)
+- Equal-distance projection onto the plane (edp), matching the R implementation
+- Input handling supporting both row-wise and column-wise formats
+- Numerically stable trigonometric computations and normalization
+
+This module works closely with geometry.py and smoothing.py and follows 
+the coordinate-handling conventions of the original R implementation 
+in spheresmooth.
+"""
+
 import numpy as np
 
 
@@ -78,29 +99,43 @@ def spherical_to_cartesian(theta_phi: np.ndarray, byrow: bool = True) -> np.ndar
     return np.column_stack((x, y, z))
 
 
+import numpy as np
+from .coords import cartesian_to_spherical
+
 def edp(p: np.ndarray) -> np.ndarray:
     """
-    Equal-distance projection of a point on the unit sphere onto the xy-plane.
+    Equal-distance projection (EDP) of a point onto the xy-plane.
+    
+    This is a direct translation of the R function:
 
-    NOTE
-    ----
-    The exact projection formula used in the R implementation can be
-    matched later. For now, this function returns a simple orthographic
-    projection onto the xy-plane, i.e. (x, y).
+        edp = function(p) {
+            theta_phi = cartesian_to_spherical(p)
+            theta = theta_phi[1]
+            phi = theta_phi[2]
+            x = theta * cos(phi)
+            y = theta * sin(phi)
+            projection_p = c(x, y)
+            return(projection_p)
+        }
 
     Parameters
     ----------
-    p : array-like, shape (3,)
-        Point on (or near) the unit sphere.
+    p : ndarray, shape (3,)
+        Point in Cartesian coordinates.
 
     Returns
     -------
-    projected : ndarray, shape (2,)
-        Projected point in the plane.
+    ndarray, shape (2,)
+        (x, y) coordinates after equal-distance projection.
     """
-    p = np.asarray(p, dtype=float)
+
+    p = np.asarray(p, float)
     if p.shape != (3,):
         raise ValueError("p must be a 3-dimensional vector.")
 
-    # TODO: Replace with the exact equal-distance projection if needed.
-    return p[:2].copy()
+    theta, phi = cartesian_to_spherical(p)
+
+    x = theta * np.cos(phi)
+    y = theta * np.sin(phi)
+
+    return np.array([x, y], float)

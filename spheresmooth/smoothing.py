@@ -1,3 +1,29 @@
+"""
+This module provides the core functionality for penalized spherical smoothing,
+equivalent to the exported functions in the R package `spheresmooth`.
+
+The functions defined here implement the public-facing API of the Python
+version, while internal mathematical components (loss gradients, penalty
+gradients, jump operators, Acos utilities, etc.) are delegated to `_internal.py`.
+
+Main features include:
+
+- Construction of quantile-based knot locations (`knots_quantile`)
+- Computation of geodesic loss on the sphere (`calculate_loss`)
+- Full penalized spline fitting procedure
+  (`penalized_linear_spherical_spline`)
+- Integration with geometric utilities such as:
+    * spherical distance (`spherical_dist`)
+    * exponential map (`exp_map`)
+    * geodesic interpolation (`geodesic`, `geodesic_lower`)
+    * piecewise geodesic curve construction (`piecewise_geodesic`)
+    * coordinate transformations (spherical/cartesian)
+
+This module works closely with `geometry.py` and `_internal.py`, reproducing
+the piecewise-geodesic smoothing structure of the original R implementation
+from the `spheresmooth` package.
+"""
+
 import numpy as np
 
 from ._internal import (

@@ -1,4 +1,4 @@
-API Reference
+spheresmooth
 =============
 
 .. autosummary::
@@ -6,6 +6,4 @@ API Reference
    :recursive:
 
    spheresmooth
-   spheresmooth.coords
-   spheresmooth.geo
-   spheresmooth.kernel
+   
