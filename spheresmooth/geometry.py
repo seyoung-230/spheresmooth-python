@@ -5,6 +5,7 @@ This module provides the same functionality as the exported functions in the R p
 The functions here define the public-facing API, while internal components such as gradient and penalty computations are encapsulated inside _internal.py.
 
 Features provided:
+
 - Basic vector operations (dot, cross, norm2)
 - Vector/matrix normalization (normalize_lower, normalize)
 - Spherical distance computation (spherical_dist)

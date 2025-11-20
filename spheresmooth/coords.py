@@ -9,6 +9,7 @@ All lower-level geometric or optimization-related computations are
 encapsulated inside internal modules such as _internal.py and geometry.py.
 
 Features provided:
+
 - Conversion between Cartesian and spherical coordinates (cartesian_to_spherical, spherical_to_cartesian)
 - Equal-distance projection onto the plane (edp), matching the R implementation
 - Input handling supporting both row-wise and column-wise formats
