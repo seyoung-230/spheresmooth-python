@@ -15,3 +15,5 @@ This documentation includes:
    :caption: Contents:
 
    api
+   api/index
+   auto_examples/index
