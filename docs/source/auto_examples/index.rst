@@ -14,14 +14,48 @@ This section contains example usage of the spheresmooth package.
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="Compute the dot product of two vectors.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_dot_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_dot.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Dot Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Compute the cross product of two vectors.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_cross_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_cross.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Cross Product Example</div>
+    </div>
+
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="Basic axes-aligned points example.">
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_example2_thumb.png
+  .. image:: /auto_examples/images/thumb/sphx_glr_cartesian_to_spherical_02_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_example2.py`
+  :ref:`sphx_glr_auto_examples_cartesian_to_spherical_02.py`
 
 .. raw:: html
 
@@ -35,10 +69,10 @@ This section contains example usage of the spheresmooth package.
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_plot_example1_thumb.png
+  .. image:: /auto_examples/images/thumb/sphx_glr_cartesian_to_spherical_01_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_plot_example1.py`
+  :ref:`sphx_glr_auto_examples_cartesian_to_spherical_01.py`
 
 .. raw:: html
 
@@ -56,8 +90,10 @@ This section contains example usage of the spheresmooth package.
 .. toctree::
    :hidden:
 
-   /auto_examples/plot_example2
-   /auto_examples/plot_example1
+   /auto_examples/dot
+   /auto_examples/cross
+   /auto_examples/cartesian_to_spherical_02
+   /auto_examples/cartesian_to_spherical_01
 
 
 .. only:: html

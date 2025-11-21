@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.004** total execution time for 2 files **from auto_examples**:
+**00:00.006** total execution time for 4 files **from auto_examples**:
 
 .. container::
 
@@ -32,9 +32,15 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
-   * - :ref:`sphx_glr_auto_examples_plot_example2.py` (``plot_example2.py``)
+   * - :ref:`sphx_glr_auto_examples_dot.py` (``dot.py``)
      - 00:00.003
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_plot_example1.py` (``plot_example1.py``)
+   * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical_01.py` (``cartesian_to_spherical_01.py``)
+     - 00:00.001
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_cross.py` (``cross.py``)
+     - 00:00.001
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical_02.py` (``cartesian_to_spherical_02.py``)
      - 00:00.001
      - 0.0

@@ -46,5 +46,7 @@ napoleon_numpy_docstring = True
 
 sphinx_gallery_conf = {
     "examples_dirs": "gallery",          
-    "gallery_dirs": "auto_examples",     
+    "gallery_dirs": "auto_examples",
+    "filename_pattern": r".*",
+    'run_stale_examples': True,    
 }

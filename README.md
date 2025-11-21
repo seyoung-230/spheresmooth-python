@@ -13,6 +13,25 @@ This project is a work-in-progress port of the original R implementation, with m
 pip install -e .
 ```
 
+---
+
+## Requirements
+
+`spheresmooth` requires the following dependencies:
+
+| Package      | Version (recommended)  | Description |
+|--------------|-------------------------|-------------|
+| Python       | 3.8+                    | Core language requirement |
+| NumPy        | >= 1.24                 | Numerical computations |
+| SciPy        | >= 1.10                 | Optimization & linear algebra |
+| matplotlib   | >= 3.7 (optional)       | For visualization examples |
+| pytest       | >= 7.0 (optional)       | For running unit tests |
+
+If you install `spheresmooth` via **pip**, all required dependencies (`numpy`, `scipy`) will be installed automatically:
+
+```bash
+pip install spheresmooth
+```
 
 ---
 
@@ -34,25 +53,6 @@ pip install -e .
 - R function `penalized_linear_spherical_spline()`의 Python 버전 구조 구현 완료  
 - Full Riemannian optimization is currently under development  
 
----
-
-## Project Structure
-
-```
-spheresmooth/
-    __init__.py
-    coords.py
-    geometry.py
-    smoothing.py
-    data.py
-docs/
-    source/
-        api/
-        gallery/
-        generated/
-```
-
----
 
 ## Documentation
 

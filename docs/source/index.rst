@@ -9,11 +9,11 @@ This documentation includes:
 - Geometry utilities
 - Coordinate transforms
 - Smoothing functions
+- Examples (auto-generated via Sphinx-Gallery)
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    api
-   api/index
    auto_examples/index
