@@ -22,6 +22,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon', 
     'sphinx.ext.autosummary',
+    "sphinx_gallery.gen_gallery",
 ]
 
 autosummary_generate = True
@@ -40,3 +41,10 @@ html_theme_options = {
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
 }
 html_static_path = ['_static']
+
+napoleon_numpy_docstring = True
+
+sphinx_gallery_conf = {
+    "examples_dirs": "gallery",          
+    "gallery_dirs": "auto_examples",     
+}
