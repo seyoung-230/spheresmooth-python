@@ -61,3 +61,10 @@ def load_goni():
     """
     path = resources.files("spheresmooth").joinpath("data/goni.csv")
     return pd.read_csv(path)
+
+def load_world_map():
+    """
+    Return the path to the Natural Earth world shapefile
+    bundled inside the spheresmooth package.
+    """
+    return resources.files("spheresmooth.data.world") / "ne_110m_admin_0_countries.shp"

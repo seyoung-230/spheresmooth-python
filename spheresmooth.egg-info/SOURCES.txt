@@ -3,8 +3,8 @@ pyproject.toml
 spheresmooth/__init__.py
 spheresmooth/_internal.py
 spheresmooth/coords.py
-spheresmooth/data.py
 spheresmooth/geometry.py
+spheresmooth/loads.py
 spheresmooth/smoothing.py
 spheresmooth.egg-info/PKG-INFO
 spheresmooth.egg-info/SOURCES.txt
@@ -13,6 +13,12 @@ spheresmooth.egg-info/requires.txt
 spheresmooth.egg-info/top_level.txt
 spheresmooth/data/apw.csv
 spheresmooth/data/goni.csv
+spheresmooth/data/world/__init__.py
+spheresmooth/data/world/ne_110m_admin_0_countries.cpg
+spheresmooth/data/world/ne_110m_admin_0_countries.dbf
+spheresmooth/data/world/ne_110m_admin_0_countries.prj
+spheresmooth/data/world/ne_110m_admin_0_countries.shp
+spheresmooth/data/world/ne_110m_admin_0_countries.shx
 test/test.py
 test/test2.py
 test/test3_apw.py

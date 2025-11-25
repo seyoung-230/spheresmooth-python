@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.006** total execution time for 4 files **from all galleries**:
+**00:51.960** total execution time for 5 files **from all galleries**:
 
 .. container::
 
@@ -32,15 +32,18 @@ Computation times
    * - Example
      - Time
      - Mem (MB)
+   * - :ref:`sphx_glr_auto_examples_apw.py` (``gallery\apw.py``)
+     - 00:51.955
+     - 0.0
    * - :ref:`sphx_glr_auto_examples_dot.py` (``gallery\dot.py``)
-     - 00:00.003
+     - 00:00.002
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical_02.py` (``gallery\cartesian_to_spherical_02.py``)
+     - 00:00.001
      - 0.0
    * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical_01.py` (``gallery\cartesian_to_spherical_01.py``)
      - 00:00.001
      - 0.0
    * - :ref:`sphx_glr_auto_examples_cross.py` (``gallery\cross.py``)
-     - 00:00.001
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical_02.py` (``gallery\cartesian_to_spherical_02.py``)
      - 00:00.001
      - 0.0

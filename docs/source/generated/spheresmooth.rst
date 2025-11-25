@@ -11,6 +11,6 @@
    :recursive:
 
    coords
-   data
    geometry
+   loads
    smoothing

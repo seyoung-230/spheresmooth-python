@@ -4,10 +4,10 @@
 .. automodule:: spheresmooth.data
 
    
-   .. rubric:: Functions
+.. rubric:: Modules
 
-   .. autosummary::
-   
-      load_apw
-      load_goni
-   
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   world

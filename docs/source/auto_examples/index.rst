@@ -80,6 +80,23 @@ This section contains example usage of the spheresmooth package.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates fitting a penalized spherical spline to the Apparent Polar Wander (APW) path and plotting the result on a world map.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_apw_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_apw.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">APW Example</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -94,6 +111,7 @@ This section contains example usage of the spheresmooth package.
    /auto_examples/cross
    /auto_examples/cartesian_to_spherical_02
    /auto_examples/cartesian_to_spherical_01
+   /auto_examples/apw
 
 
 .. only:: html
