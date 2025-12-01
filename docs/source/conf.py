@@ -48,5 +48,6 @@ sphinx_gallery_conf = {
     "examples_dirs": "gallery",          
     "gallery_dirs": "auto_examples",
     "filename_pattern": r".*",
-    'run_stale_examples': True,    
+    'run_stale_examples': True,
+    "capture_repr": ("_repr_html_",),    
 }

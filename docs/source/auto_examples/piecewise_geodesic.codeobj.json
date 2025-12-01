@@ -1,0 +1,709 @@
+{
+ "c": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "float64"
+  }
+ ],
+ "control_points": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "curve": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "fig": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs._figure",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "Figure"
+  }
+ ],
+ "fig.add_surface": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs._figure",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure.add_surface"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure.add_surface"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "Figure.add_surface"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.basedatatypes",
+   "module_short": "plotly.basedatatypes",
+   "name": "BaseFigure.add_surface"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "BaseFigure.add_surface"
+  }
+ ],
+ "fig.add_trace": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs._figure",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure.add_trace"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure.add_trace"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "Figure.add_trace"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.basedatatypes",
+   "module_short": "plotly.basedatatypes",
+   "name": "BaseFigure.add_trace"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "BaseFigure.add_trace"
+  }
+ ],
+ "fig.show": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs._figure",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "Figure.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.basedatatypes",
+   "module_short": "plotly.basedatatypes",
+   "name": "BaseFigure.show"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "BaseFigure.show"
+  }
+ ],
+ "fig.update_layout": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs._figure",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure.update_layout"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objs",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure.update_layout"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "Figure.update_layout"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.basedatatypes",
+   "module_short": "plotly.basedatatypes",
+   "name": "BaseFigure.update_layout"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "BaseFigure.update_layout"
+  }
+ ],
+ "go.Figure": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly.graph_objs._figure",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly.graph_objs",
+   "module_short": "plotly.graph_objs",
+   "name": "Figure"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "Figure"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly.basedatatypes",
+   "module_short": "plotly.basedatatypes",
+   "name": "BaseFigure"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "BaseFigure"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objects",
+   "module_short": "plotly.graph_objects",
+   "name": "Figure"
+  }
+ ],
+ "go.Scatter3d": [
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly.graph_objs._scatter3d",
+   "module_short": "plotly.graph_objs",
+   "name": "Scatter3d"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly.graph_objs",
+   "module_short": "plotly.graph_objs",
+   "name": "Scatter3d"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "Scatter3d"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly.basedatatypes",
+   "module_short": "plotly.basedatatypes",
+   "name": "BaseTraceType"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "BaseTraceType"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly.basedatatypes",
+   "module_short": "plotly.basedatatypes",
+   "name": "BaseTraceHierarchyType"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "BaseTraceHierarchyType"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly.basedatatypes",
+   "module_short": "plotly.basedatatypes",
+   "name": "BasePlotlyType"
+  },
+  {
+   "is_class": true,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "BasePlotlyType"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.graph_objects",
+   "module_short": "plotly.graph_objects",
+   "name": "Scatter3d"
+  }
+ ],
+ "knots": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "lam": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "float64"
+  }
+ ],
+ "lat": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "float64"
+  }
+ ],
+ "lat_values": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "lon": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "float64"
+  }
+ ],
+ "lon_values": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "np.array": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "builtin_function_or_method"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "array"
+  }
+ ],
+ "np.cos": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ufunc"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "cos"
+  }
+ ],
+ "np.full_like": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "_ArrayFunctionDispatcher"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "full_like"
+  }
+ ],
+ "np.linspace": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "_ArrayFunctionDispatcher"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "linspace"
+  }
+ ],
+ "np.ones_like": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "_ArrayFunctionDispatcher"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ones_like"
+  }
+ ],
+ "np.outer": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "_ArrayFunctionDispatcher"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "outer"
+  }
+ ],
+ "np.pi": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "float"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "pi"
+  }
+ ],
+ "np.radians": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ufunc"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "radians"
+  }
+ ],
+ "np.sin": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ufunc"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "sin"
+  }
+ ],
+ "np.sqrt": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ufunc"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "sqrt"
+  }
+ ],
+ "phi": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "float64"
+  }
+ ],
+ "piecewise_geodesic": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "spheresmooth",
+   "module_short": "spheresmooth",
+   "name": "piecewise_geodesic"
+  }
+ ],
+ "pio.renderers.default": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.io._renderers",
+   "module_short": "plotly.io._renderers",
+   "name": "RenderersConfig.default"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.io",
+   "module_short": "plotly.io",
+   "name": "RenderersConfig.default"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly",
+   "module_short": "plotly",
+   "name": "RenderersConfig.default"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.io.renderers",
+   "module_short": "plotly.io.renderers",
+   "name": "default"
+  }
+ ],
+ "pio.to_html": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "plotly.io",
+   "module_short": "plotly.io",
+   "name": "to_html"
+  }
+ ],
+ "t": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "u": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "v": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "x": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "x_lat": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "x_lon": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "y": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "y_lat": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "y_lon": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "z": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "z_lat": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "z_lon": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ]
+}
