@@ -133,23 +133,6 @@ This section contains example usage of the spheresmooth package.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Compute a point on the geodesic curve connecting two points on the unit sphere.">
-
-.. only:: html
-
-  .. image:: /auto_examples/images/thumb/sphx_glr_geodesic_lower_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_geodesic_lower.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Geodesic Curve Example</div>
-    </div>
-
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Generate knot locations based on quantiles of time points.">
 
 .. only:: html
@@ -162,6 +145,23 @@ This section contains example usage of the spheresmooth package.
 .. raw:: html
 
       <div class="sphx-glr-thumbnail-title">Quantile-based Knot Generator Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="Compute a point on the geodesic curve connecting two points on the unit sphere.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_geodesic_lower_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_geodesic_lower.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Geodesic Curve Example</div>
     </div>
 
 
@@ -267,8 +267,8 @@ This section contains example usage of the spheresmooth package.
    /auto_examples/exp_map
    /auto_examples/spherical_dist
    /auto_examples/cross
-   /auto_examples/geodesic_lower
    /auto_examples/knots_quantile
+   /auto_examples/geodesic_lower
    /auto_examples/cartesian_to_spherical_02
    /auto_examples/spherical_to_cartesian
    /auto_examples/cartesian_to_spherical_01

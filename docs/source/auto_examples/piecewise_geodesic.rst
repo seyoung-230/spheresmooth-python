@@ -23,40 +23,24 @@ Piecewise Geodesic Example
 
 Compute and visualize a piecewise geodesic curve on the unit sphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-117
-
-
-.. rst-class:: sphx-glr-script-out
-
-.. code-block:: pytb
-
-    Traceback (most recent call last):
-      File "C:\Users\User\Desktop\230\Spheresmooth\spheresmooth-python\docs\source\gallery\piecewise_geodesic.py", line 114, in <module>
-        fig.show()
-      File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\plotly\basedatatypes.py", line 3420, in show
-        return pio.show(self, *args, **kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-      File "C:\Users\User\AppData\Local\Programs\Python\Python311\Lib\site-packages\plotly\io\_renderers.py", line 410, in show
-        raise ValueError(
-    ValueError: Mime type rendering requires ipython but it is not installed
+.. GENERATED FROM PYTHON SOURCE LINES 7-121
 
 
 
 
 
 
-|
 
 .. code-block:: Python
 
-    import plotly.io as pio
-    pio.renderers.default = "sphinx_gallery"
+
     import numpy as np
     import plotly.graph_objects as go
+    import plotly.io as pio
     from spheresmooth import piecewise_geodesic
 
     # -------------------------------------------------------------
-    # Define control points and knots
+    # Example setup
     # -------------------------------------------------------------
     c = 1/np.sqrt(3)
     control_points = np.array([
@@ -65,17 +49,13 @@ Compute and visualize a piecewise geodesic curve on the unit sphere.
         [-c,  c,  c],
         [-c,  c, -c]
     ])
-
     knots = np.array([1, 2, 3, 3.5])
 
-    # Time grid
     t = np.linspace(0, 4, 300)
-
-    # Compute piecewise geodesic
     curve = piecewise_geodesic(t, control_points, knots)
 
     # -------------------------------------------------------------
-    # Sphere mesh grid
+    # Sphere mesh
     # -------------------------------------------------------------
     u = np.linspace(0, 2*np.pi, 60)
     v = np.linspace(0, np.pi, 30)
@@ -88,7 +68,7 @@ Compute and visualize a piecewise geodesic curve on the unit sphere.
     # -------------------------------------------------------------
     fig = go.Figure()
 
-    # Sphere
+    # Sphere surface
     fig.add_surface(
         x=x, y=y, z=z,
         opacity=0.1,
@@ -98,34 +78,33 @@ Compute and visualize a piecewise geodesic curve on the unit sphere.
 
     # Control points
     fig.add_trace(go.Scatter3d(
-        x=control_points[:,0],
-        y=control_points[:,1],
-        z=control_points[:,2],
+        x=control_points[:, 0],
+        y=control_points[:, 1],
+        z=control_points[:, 2],
         mode='markers',
-        marker=dict(size=5, color='blue')
+        marker=dict(size=5, color='blue', opacity=1),
+        name='Control Points' # 범례 추가
     ))
 
-    # Piecewise geodesic path
+    # Geodesic path
     fig.add_trace(go.Scatter3d(
-        x=curve[:,0],
-        y=curve[:,1],
-        z=curve[:,2],
+        x=curve[:, 0],
+        y=curve[:, 1],
+        z=curve[:, 2],
         mode='lines',
-        line=dict(color='red', width=6)
+        line=dict(color='red', width=6),
+        name='Piecewise Geodesic' # 범례 추가
     ))
 
-    # -------------------------------------------------------------
-    # Optional: latitude/longitude grid
-    # -------------------------------------------------------------
+    # Optional: lat/long grid (간결성을 위해 생략 가능하나 원본 유지)
     lat_values = np.linspace(-60, 60, 8)
     for lat in lat_values:
         phi = np.radians(lat)
-        u = np.linspace(0, 2*np.pi, 200)
-        x_lat = np.cos(u) * np.cos(phi)
-        y_lat = np.sin(u) * np.cos(phi)
-        z_lat = np.full_like(u, np.sin(phi))
+        ugrid = np.linspace(0, 2*np.pi, 200)
         fig.add_trace(go.Scatter3d(
-            x=x_lat, y=y_lat, z=z_lat,
+            x=np.cos(ugrid) * np.cos(phi),
+            y=np.sin(ugrid) * np.cos(phi),
+            z=np.full_like(ugrid, np.sin(phi)),
             mode='lines',
             line=dict(color='gray', width=1),
             showlegend=False
@@ -134,18 +113,16 @@ Compute and visualize a piecewise geodesic curve on the unit sphere.
     lon_values = np.linspace(0, 330, 12)
     for lon in lon_values:
         lam = np.radians(lon)
-        v = np.linspace(-np.pi/2, np.pi/2, 200)
-        x_lon = np.cos(v) * np.cos(lam)
-        y_lon = np.cos(v) * np.sin(lam)
-        z_lon = np.sin(v)
+        vgrid = np.linspace(-np.pi/2, np.pi/2, 200)
         fig.add_trace(go.Scatter3d(
-            x=x_lon, y=y_lon, z=z_lon,
+            x=np.cos(vgrid) * np.cos(lam),
+            y=np.cos(vgrid) * np.sin(lam),
+            z=np.sin(vgrid),
             mode='lines',
             line=dict(color='gray', width=1),
             showlegend=False
         ))
 
-    # Layout
     fig.update_layout(
         title="Piecewise Geodesic on the Sphere",
         scene=dict(
@@ -156,14 +133,25 @@ Compute and visualize a piecewise geodesic curve on the unit sphere.
         )
     )
 
-    fig.show()
-
-    html = pio.to_html(fig, include_plotlyjs="cdn", full_html=False)
-    print(html)
+    # -------------------------------------------------------------
+    # Sphinx Gallery/독립 실행 환경을 위해 Plotly 그래프를 이미지로 저장
+    # 이 부분이 Sphinx Gallery에서 이미지를 캡처하도록 합니다.
+    # pio.write_image를 사용하려면 'kaleido' 패키지가 설치되어 있어야 합니다.
+    # -------------------------------------------------------------
+    try:
+        pio.write_image(fig, "piecewise_geodesic_example.png", scale=2)
+        # 이미지 저장이 성공하면, Sphinx Gallery가 이 이미지를 캡처합니다.
+    except ValueError:
+        print("Warning: 'kaleido' not installed. Cannot save static image.")
+        # 'kaleido'가 설치되어 있지 않으면 정적 이미지 저장에 실패할 수 있습니다.
+    
+    # IPython/Notebook 환경이 아니라면 아래 HTML 출력 코드는 필요하지 않습니다.
+    # from IPython.display import HTML
+    # HTML(pio.to_html(fig, full_html=False, include_plotlyjs="cdn"))
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.154 seconds)
+   **Total running time of the script:** (0 minutes 2.298 seconds)
 
 
 .. _sphx_glr_download_auto_examples_piecewise_geodesic.py:

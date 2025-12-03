@@ -52,7 +52,7 @@ Generate knot locations based on quantiles of time points.
 
 
     import numpy as np
-    from spheresmooth import knots_quantile   # 패키지 내부에 존재한다고 가정
+    from spheresmooth import knots_quantile   
 
     # Example input
     x = np.linspace(0.0, 1.0, 100)     # time points
@@ -67,6 +67,11 @@ Generate knot locations based on quantiles of time points.
 
     print("\nGenerated knots:")
     print(knots)
+
+
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** (0 minutes 0.001 seconds)
 
 
 .. _sphx_glr_download_auto_examples_knots_quantile.py:

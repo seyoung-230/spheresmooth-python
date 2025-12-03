@@ -123,43 +123,6 @@
    "name": "BaseFigure.add_trace"
   }
  ],
- "fig.show": [
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "plotly.graph_objs._figure",
-   "module_short": "plotly.graph_objs",
-   "name": "Figure.show"
-  },
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "plotly.graph_objs",
-   "module_short": "plotly.graph_objs",
-   "name": "Figure.show"
-  },
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "plotly",
-   "module_short": "plotly",
-   "name": "Figure.show"
-  },
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "plotly.basedatatypes",
-   "module_short": "plotly.basedatatypes",
-   "name": "BaseFigure.show"
-  },
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "plotly",
-   "module_short": "plotly",
-   "name": "BaseFigure.show"
-  }
- ],
  "fig.update_layout": [
   {
    "is_class": false,
@@ -552,37 +515,7 @@
    "name": "piecewise_geodesic"
   }
  ],
- "pio.renderers.default": [
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "plotly.io._renderers",
-   "module_short": "plotly.io._renderers",
-   "name": "RenderersConfig.default"
-  },
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "plotly.io",
-   "module_short": "plotly.io",
-   "name": "RenderersConfig.default"
-  },
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "plotly",
-   "module_short": "plotly",
-   "name": "RenderersConfig.default"
-  },
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "plotly.io.renderers",
-   "module_short": "plotly.io.renderers",
-   "name": "default"
-  }
- ],
- "pio.to_html": [
+ "pio.write_image": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -595,7 +528,7 @@
    "is_explicit": false,
    "module": "plotly.io",
    "module_short": "plotly.io",
-   "name": "to_html"
+   "name": "write_image"
   }
  ],
  "t": [
@@ -616,7 +549,25 @@
    "name": "ndarray"
   }
  ],
+ "ugrid": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
  "v": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "numpy",
+   "module_short": "numpy",
+   "name": "ndarray"
+  }
+ ],
+ "vgrid": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -634,24 +585,6 @@
    "name": "ndarray"
   }
  ],
- "x_lat": [
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "numpy",
-   "module_short": "numpy",
-   "name": "ndarray"
-  }
- ],
- "x_lon": [
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "numpy",
-   "module_short": "numpy",
-   "name": "ndarray"
-  }
- ],
  "y": [
   {
    "is_class": false,
@@ -661,43 +594,7 @@
    "name": "ndarray"
   }
  ],
- "y_lat": [
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "numpy",
-   "module_short": "numpy",
-   "name": "ndarray"
-  }
- ],
- "y_lon": [
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "numpy",
-   "module_short": "numpy",
-   "name": "ndarray"
-  }
- ],
  "z": [
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "numpy",
-   "module_short": "numpy",
-   "name": "ndarray"
-  }
- ],
- "z_lat": [
-  {
-   "is_class": false,
-   "is_explicit": false,
-   "module": "numpy",
-   "module_short": "numpy",
-   "name": "ndarray"
-  }
- ],
- "z_lon": [
   {
    "is_class": false,
    "is_explicit": false,

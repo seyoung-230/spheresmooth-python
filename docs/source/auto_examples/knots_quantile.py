@@ -6,7 +6,7 @@ Generate knot locations based on quantiles of time points.
 """
 
 import numpy as np
-from spheresmooth import knots_quantile   # 패키지 내부에 존재한다고 가정
+from spheresmooth import knots_quantile   
 
 # Example input
 x = np.linspace(0.0, 1.0, 100)     # time points

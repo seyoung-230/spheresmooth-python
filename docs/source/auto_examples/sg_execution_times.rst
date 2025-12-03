@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**00:00.166** total execution time for 14 files **from auto_examples**:
+**00:02.312** total execution time for 14 files **from auto_examples**:
 
 .. container::
 
@@ -33,27 +33,12 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_piecewise_geodesic.py` (``piecewise_geodesic.py``)
-     - 00:00.154
+     - 00:02.298
      - 0.0
    * - :ref:`sphx_glr_auto_examples_norm2.py` (``norm2.py``)
-     - 00:00.002
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_geodesic.py` (``geodesic.py``)
-     - 00:00.001
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_normalize.py` (``normalize.py``)
-     - 00:00.001
+     - 00:00.003
      - 0.0
    * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical_01.py` (``cartesian_to_spherical_01.py``)
-     - 00:00.001
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical_02.py` (``cartesian_to_spherical_02.py``)
-     - 00:00.001
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_cross.py` (``cross.py``)
-     - 00:00.001
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_exp_map.py` (``exp_map.py``)
      - 00:00.001
      - 0.0
    * - :ref:`sphx_glr_auto_examples_dot.py` (``dot.py``)
@@ -62,15 +47,30 @@ Computation times
    * - :ref:`sphx_glr_auto_examples_geodesic_lower.py` (``geodesic_lower.py``)
      - 00:00.001
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_spherical_to_cartesian.py` (``spherical_to_cartesian.py``)
+   * - :ref:`sphx_glr_auto_examples_exp_map.py` (``exp_map.py``)
+     - 00:00.001
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_knots_quantile.py` (``knots_quantile.py``)
+     - 00:00.001
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_cross.py` (``cross.py``)
+     - 00:00.001
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_geodesic.py` (``geodesic.py``)
      - 00:00.001
      - 0.0
    * - :ref:`sphx_glr_auto_examples_normalize_lower.py` (``normalize_lower.py``)
      - 00:00.001
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_knots_quantile.py` (``knots_quantile.py``)
-     - 00:00.000
+   * - :ref:`sphx_glr_auto_examples_spherical_to_cartesian.py` (``spherical_to_cartesian.py``)
+     - 00:00.001
      - 0.0
    * - :ref:`sphx_glr_auto_examples_spherical_dist.py` (``spherical_dist.py``)
+     - 00:00.001
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical_02.py` (``cartesian_to_spherical_02.py``)
+     - 00:00.001
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_normalize.py` (``normalize.py``)
      - 00:00.000
      - 0.0
