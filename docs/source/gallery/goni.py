@@ -1,11 +1,11 @@
 """
-APW Example
+GONI Example
 ======================================
 
 This example demonstrates fitting a penalized spherical spline to
-the Apparent Polar Wander (APW) path and plotting the result on a world map.
+the GONI dataset and plotting the resulting spline curve on a world map.
 
-.. image:: /_static/thumbnails/apw_thumb.png
+.. image:: /_static/thumbnails/goni_thumb.png
    :class: sphx-glr-thumbimg
 """
 
@@ -18,31 +18,31 @@ import matplotlib.pyplot as plt
 import geopandas as gpd
 
 import spheresmooth as ss
-from spheresmooth.loads import load_world_map   
+from spheresmooth.loads import load_world_map
 
 
 # ----------------------------------------------------
-# 1. Load APW spherical data (θ, φ in radians)
+# 1. Load GONI spherical data (t, theta, phi)
 # ----------------------------------------------------
-apw = ss.load_apw()   # pandas DataFrame: [t, theta, phi]
+goni = ss.load_goni()   # DataFrame: [t, theta, phi]
 
-t = apw.iloc[:, 0].values
-spherical = apw.iloc[:, 1:3].values   # (theta, phi)
+t = goni.iloc[:, 0].values
+spherical = goni.iloc[:, 1:3].values   # (theta, phi)
 
 
 # ----------------------------------------------------
 # 2. Spherical → Cartesian
 # ----------------------------------------------------
-apw_cartesian = ss.spherical_to_cartesian(spherical)
+goni_cartesian = ss.spherical_to_cartesian(spherical)
 
 
 # ----------------------------------------------------
-# 3. Quantile knots
+# 3. Quantile knots + lambda sequence
 # ----------------------------------------------------
-dimension = 15
+dimension = 12     # moderate for quick Sphinx-Gallery execution
 initial_knots = ss.knots_quantile(t, dimension)
 
-lambda_seq = np.exp(np.linspace(np.log(1e-7), np.log(1), 40))
+lambda_seq = np.exp(np.linspace(np.log(1e-6), np.log(1), 25))
 
 
 # ----------------------------------------------------
@@ -50,7 +50,7 @@ lambda_seq = np.exp(np.linspace(np.log(1e-7), np.log(1), 40))
 # ----------------------------------------------------
 fit = ss.penalized_linear_spherical_spline(
     t=t,
-    y=apw_cartesian,
+    y=goni_cartesian,
     dimension=dimension,
     initial_knots=initial_knots,
     lambdas=lambda_seq
@@ -70,14 +70,14 @@ print(control_points)
 
 
 # ----------------------------------------------------
-# 5. Convert control points → (theta, phi)
+# 5. Convert control points to latitude/longitude
 # ----------------------------------------------------
 cp_spherical = ss.cartesian_to_spherical(control_points)
 cp_deg = np.degrees(cp_spherical)
 
 cp_df = pd.DataFrame({
     "latitude": 90 - cp_deg[:, 0],
-    "longitude": cp_deg[:, 1]
+    "longitude": cp_deg[:, 1],
 })
 
 
@@ -92,54 +92,72 @@ curve_deg = np.degrees(curve_sph)
 
 curve_df = pd.DataFrame({
     "latitude": 90 - curve_deg[:, 0],
-    "longitude": curve_deg[:, 1]
+    "longitude": curve_deg[:, 1],
 })
 
 
 # ----------------------------------------------------
-# 7. Original APW data → (lat, lon)
+# 7. Original GONI data → (lat, lon)
 # ----------------------------------------------------
-apw_deg = np.degrees(spherical)
+goni_deg = np.degrees(spherical)
 
-apw_df = pd.DataFrame({
-    "latitude": 90 - apw_deg[:, 0],
-    "longitude": apw_deg[:, 1]
+goni_df = pd.DataFrame({
+    "latitude": 90 - goni_deg[:, 0],
+    "longitude": goni_deg[:, 1],
 })
 
 
+# # ----------------------------------------------------
+# # 8. Figure 1: World map + GONI + fitted curve
+# # ----------------------------------------------------
+# fig, ax = plt.subplots(figsize=(14, 6))
+
+# # Load world shapefile
+# world_path = load_world_map()
+# world = gpd.read_file(world_path)
+
+# # World map
+# world.plot(ax=ax, color="antiquewhite", edgecolor="gray")
+
+# # Raw GONI data
+# ax.scatter(
+#     goni_df["longitude"], goni_df["latitude"],
+#     s=3, color="black", label="GONI data"
+# )
+
+# # Control points
+# ax.scatter(
+#     cp_df["longitude"], cp_df["latitude"],
+#     s=50, color="blue", marker="s", label="Control points"
+# )
+
+# # Fitted spline curve
+# ax.plot(
+#     curve_df["longitude"], curve_df["latitude"],
+#     color="red", linewidth=1.5, label="Spline curve"
+# )
+
+# ax.set_xlabel("longitude")
+# ax.set_ylabel("latitude")
+# ax.set_title("GONI Data + Control Points + Fitted Spherical Spline")
+# ax.legend()
+
+# plt.show()  
+
+
+
 # ----------------------------------------------------
-# 8. Plot world map + APW + spline curve
+# 9. Figure 2: Zoom-in (East Asia)
 # ----------------------------------------------------
-fig, ax = plt.subplots(figsize=(12, 8))
-
-# 8-1. World map
-world_path = load_world_map()
-world = gpd.read_file(world_path)
-world.plot(ax=ax, color="antiquewhite", edgecolor="grey")
-
-# 8-2. APW data, control points, spline curve
-ax.scatter(apw_df["longitude"], apw_df["latitude"], s=3)
-ax.scatter(cp_df["longitude"], cp_df["latitude"], s=50, c="blue", marker="s")
-ax.plot(curve_df["longitude"], curve_df["latitude"], c="red", linewidth=1)
-
-ax.set_xlabel("longitude")
-ax.set_ylabel("latitude")
-ax.set_title("APW Data + Control Points + Fitted Spherical Spline")
-
-plt.show()
-
-# ----------------------------------------------------
-# 9. Zoom-in plot for APW (North Asia / Bering region)
-# ----------------------------------------------------
-fig2, ax2 = plt.subplots(figsize=(12, 10))
+fig2, ax2 = plt.subplots(figsize=(14, 10))
 
 # World map
-world.plot(ax=ax2, color="antiquewhite", edgecolor="grey")
+world.plot(ax=ax2, color="antiquewhite", edgecolor="gray")
 
-# Raw APW data
+# Raw GONI data
 ax2.scatter(
-    apw_df["longitude"], apw_df["latitude"],
-    s=5, color="black", label="APW data"
+    goni_df["longitude"], goni_df["latitude"],
+    s=5, color="black", label="GONI data"
 )
 
 # Control points
@@ -151,18 +169,16 @@ ax2.scatter(
 # Fitted spline curve
 ax2.plot(
     curve_df["longitude"], curve_df["latitude"],
-    c="red", linewidth=2, label="Spline curve"
+    color="red", linewidth=2, label="Spline curve"
 )
 
-# -----------------------------------------
-# Zoom region — adjust based on APW area
-# -----------------------------------------
-ax2.set_xlim(60, 230)   # longitude zoom range
-ax2.set_ylim(55, 95)    # latitude zoom range
+# Zoom bounds (East Asia)
+ax2.set_xlim(100, 170)
+ax2.set_ylim(-10, 65)
 
 ax2.set_xlabel("longitude")
 ax2.set_ylabel("latitude")
-ax2.set_title("Zoomed-in Region: APW Spherical Spline")
+ax2.set_title("Zoomed-in Region: East Asia")
 ax2.legend()
 
-plt.show()
+plt.show()   

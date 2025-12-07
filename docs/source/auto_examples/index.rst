@@ -250,6 +250,40 @@ This section contains example usage of the spheresmooth package.
     </div>
 
 
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates fitting a penalized spherical spline to the Apparent Polar Wander (APW) path and plotting the result on a world map.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_apw_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_apw.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">APW Example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates fitting a penalized spherical spline to the GONI dataset and plotting the resulting spline curve on a world map.">
+
+.. only:: html
+
+  .. image:: /auto_examples/images/thumb/sphx_glr_goni_thumb.png
+    :alt:
+
+  :ref:`sphx_glr_auto_examples_goni.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">GONI Example</div>
+    </div>
+
+
 .. thumbnail-parent-div-close
 
 .. raw:: html
@@ -274,6 +308,8 @@ This section contains example usage of the spheresmooth package.
    /auto_examples/cartesian_to_spherical_01
    /auto_examples/geodesic
    /auto_examples/piecewise_geodesic
+   /auto_examples/apw
+   /auto_examples/goni
 
 
 .. only:: html

@@ -23,9 +23,14 @@ Piecewise Geodesic Example
 
 Compute and visualize a piecewise geodesic curve on the unit sphere.
 
-.. GENERATED FROM PYTHON SOURCE LINES 7-121
+.. GENERATED FROM PYTHON SOURCE LINES 7-116
 
 
+
+.. image-sg:: /auto_examples/images/sphx_glr_piecewise_geodesic_001.png
+   :alt: Piecewise Geodesic on Sphere
+   :srcset: /auto_examples/images/sphx_glr_piecewise_geodesic_001.png
+   :class: sphx-glr-single-img
 
 
 
@@ -83,7 +88,7 @@ Compute and visualize a piecewise geodesic curve on the unit sphere.
         z=control_points[:, 2],
         mode='markers',
         marker=dict(size=5, color='blue', opacity=1),
-        name='Control Points' # 범례 추가
+        name='Control Points' 
     ))
 
     # Geodesic path
@@ -93,10 +98,10 @@ Compute and visualize a piecewise geodesic curve on the unit sphere.
         z=curve[:, 2],
         mode='lines',
         line=dict(color='red', width=6),
-        name='Piecewise Geodesic' # 범례 추가
+        name='Piecewise Geodesic' 
     ))
 
-    # Optional: lat/long grid (간결성을 위해 생략 가능하나 원본 유지)
+    # Optional: lat/long grid 
     lat_values = np.linspace(-60, 60, 8)
     for lat in lat_values:
         phi = np.radians(lat)
@@ -133,25 +138,20 @@ Compute and visualize a piecewise geodesic curve on the unit sphere.
         )
     )
 
-    # -------------------------------------------------------------
-    # Sphinx Gallery/독립 실행 환경을 위해 Plotly 그래프를 이미지로 저장
-    # 이 부분이 Sphinx Gallery에서 이미지를 캡처하도록 합니다.
-    # pio.write_image를 사용하려면 'kaleido' 패키지가 설치되어 있어야 합니다.
-    # -------------------------------------------------------------
-    try:
-        pio.write_image(fig, "piecewise_geodesic_example.png", scale=2)
-        # 이미지 저장이 성공하면, Sphinx Gallery가 이 이미지를 캡처합니다.
-    except ValueError:
-        print("Warning: 'kaleido' not installed. Cannot save static image.")
-        # 'kaleido'가 설치되어 있지 않으면 정적 이미지 저장에 실패할 수 있습니다.
-    
-    # IPython/Notebook 환경이 아니라면 아래 HTML 출력 코드는 필요하지 않습니다.
-    # from IPython.display import HTML
-    # HTML(pio.to_html(fig, full_html=False, include_plotlyjs="cdn"))
+    import matplotlib.pyplot as plt
+    import matplotlib.image as mpimg
+
+    img = mpimg.imread("piecewise_geodesic_example.png")
+
+    plt.figure(figsize=(6, 6))
+    plt.imshow(img)
+    plt.axis("off")
+    plt.title("Piecewise Geodesic on Sphere")
+    plt.show()
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 2.298 seconds)
+   **Total running time of the script:** (0 minutes 0.188 seconds)
 
 
 .. _sphx_glr_download_auto_examples_piecewise_geodesic.py:
