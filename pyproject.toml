@@ -7,17 +7,25 @@ name = "spheresmooth"
 version = "0.1.0"
 description = "Piecewise geodesic smoothing for spherical data (Python port)"
 authors = [
-  {name = "Your Name", email = "you@example.com"}
+  {name = "seyoung lee", email = "you@example.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
-  "numpy>=1.22"
+  "numpy>=1.24",
+  "pandas>=1.5"
 ]
+
+[project.optional-dependencies]
+viz = [
+  "matplotlib>=3.7",
+  "geopandas>=0.13"
+]
+
 license = {text = "GPL-3.0-or-later"}
 
 [project.urls]
-Homepage = "https://github.com/yourname/spheresmooth-python"
+Homepage = "https://github.com/seyoung-230/spheresmooth-python"
 
 [tool.setuptools.package-data]
 spheresmooth = ["data/*.csv",

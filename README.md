@@ -7,10 +7,14 @@ This project is a work-in-progress port of the original R implementation, with m
 
 ---
 
+## License
+GPL-3
+---
+
 ## Installation
 
 ```
-pip install -e .
+pip install spheresmooth
 ```
 
 ---
@@ -35,14 +39,26 @@ pip install -e .
 | matplotlib  | >= 3.7                 | Plotting and visualization in example scripts (`import matplotlib.pyplot as plt`) |
 | geopandas   | >= 0.13                | Geographic data handling and map-based examples (`import geopandas as gpd`) |
 
-The core library uses pandas and importlib.resources solely for internal data loading.
-Visualization-related dependencies (matplotlib, geopandas) are required only for running example scripts.
+The core library uses `pandas` and `importlib.resources` solely for internal
+data loading.  
+`importlib.resources` is part of the Python standard library (Python ≥ 3.9) and
+does not need to be installed separately.
 
+Visualization-related dependencies (`matplotlib`, `geopandas`) are required
+**only** for running example scripts and generating figures. They are not
+needed for using the core functionality of the library.
 
-If you install `spheresmooth` via **pip**, all required dependencies (`numpy`, `scipy`) will be installed automatically:
+If you install `spheresmooth` via **pip**, the core dependencies will be
+installed automatically:
 
 ```bash
 pip install spheresmooth
+```
+
+To install the optional dependencies for examples and visualization, use:
+
+```bash
+pip install spheresmooth[viz]
 ```
 
 ---
