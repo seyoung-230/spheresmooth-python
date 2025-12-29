@@ -848,6 +848,22 @@
    "name": "DataFrame"
   }
  ],
+ "gpd.read_file": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "geopandas",
+   "module_short": "geopandas",
+   "name": "read_file"
+  }
+ ],
  "initial_knots": [
   {
    "is_class": false,
@@ -873,6 +889,22 @@
    "module": "numpy",
    "module_short": "numpy",
    "name": "ndarray"
+  }
+ ],
+ "load_world_map": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "builtins",
+   "module_short": "builtins",
+   "name": "function"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "spheresmooth.loads",
+   "module_short": "spheresmooth",
+   "name": "load_world_map"
   }
  ],
  "np.argmin": [
@@ -1243,6 +1275,47 @@
    "module": "numpy",
    "module_short": "numpy",
    "name": "ndarray"
+  }
+ ],
+ "world": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "geopandas.geodataframe",
+   "module_short": "geopandas",
+   "name": "GeoDataFrame"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "geopandas",
+   "module_short": "geopandas",
+   "name": "GeoDataFrame"
+  }
+ ],
+ "world.plot": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "geopandas.plotting",
+   "module_short": "geopandas.plotting",
+   "name": "GeoplotAccessor"
+  },
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "geopandas",
+   "module_short": "geopandas",
+   "name": "GeoplotAccessor"
+  }
+ ],
+ "world_path": [
+  {
+   "is_class": false,
+   "is_explicit": false,
+   "module": "pathlib",
+   "module_short": "pathlib",
+   "name": "WindowsPath"
   }
  ]
 }

@@ -113,8 +113,8 @@ goni_df = pd.DataFrame({
 # fig, ax = plt.subplots(figsize=(14, 6))
 
 # # Load world shapefile
-# world_path = load_world_map()
-# world = gpd.read_file(world_path)
+world_path = load_world_map()
+world = gpd.read_file(world_path)
 
 # # World map
 # world.plot(ax=ax, color="antiquewhite", edgecolor="gray")

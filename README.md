@@ -19,13 +19,25 @@ pip install -e .
 
 `spheresmooth` requires the following dependencies:
 
-| Package      | Version (recommended)  | Description |
-|--------------|-------------------------|-------------|
-| Python       | 3.8+                    | Core language requirement |
-| NumPy        | >= 1.24                 | Numerical computations |
-| SciPy        | >= 1.10                 | Optimization & linear algebra |
-| matplotlib   | >= 3.7 (optional)       | For visualization examples |
-| pytest       | >= 7.0 (optional)       | For running unit tests |
+### Core dependencies
+
+| Package | Version (recommended) | Description |
+|--------|------------------------|-------------|
+| Python | 3.10+                   | Core language requirement |
+| NumPy  | >= 1.24                | Numerical computations |
+| pandas | >= 1.5                 | Internal data loading and handling (`import pandas as pd`) |
+| importlib.resources | stdlib (Python ≥ 3.9) | Access to packaged data files |
+
+### Optional dependencies (examples and visualization)
+
+| Package     | Version (recommended) | Description |
+|-------------|------------------------|-------------|
+| matplotlib  | >= 3.7                 | Plotting and visualization in example scripts (`import matplotlib.pyplot as plt`) |
+| geopandas   | >= 0.13                | Geographic data handling and map-based examples (`import geopandas as gpd`) |
+
+The core library uses pandas and importlib.resources solely for internal data loading.
+Visualization-related dependencies (matplotlib, geopandas) are required only for running example scripts.
+
 
 If you install `spheresmooth` via **pip**, all required dependencies (`numpy`, `scipy`) will be installed automatically:
 

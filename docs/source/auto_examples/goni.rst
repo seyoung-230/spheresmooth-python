@@ -30,15 +30,31 @@ the GONI dataset and plotting the resulting spline curve on a world map.
 .. GENERATED FROM PYTHON SOURCE LINES 11-185
 
 
+
+.. image-sg:: /auto_examples/images/sphx_glr_goni_001.png
+   :alt: Zoomed-in Region: East Asia
+   :srcset: /auto_examples/images/sphx_glr_goni_001.png
+   :class: sphx-glr-single-img
+
+
 .. rst-class:: sphx-glr-script-out
 
-.. code-block:: pytb
+ .. code-block:: none
 
-    Traceback (most recent call last):
-      File "C:\Users\User\Desktop\230\Spheresmooth\spheresmooth-python\docs\source\gallery\goni.py", line 155, in <module>
-        world.plot(ax=ax2, color="antiquewhite", edgecolor="gray")
-        ^^^^^
-    NameError: name 'world' is not defined
+    Best λ index: 5
+    Control points (cartesian):
+    [[-0.85719402  0.47093044  0.20842968]
+     [-0.81024223  0.5363929   0.23619944]
+     [-0.76899269  0.57738131  0.27437396]
+     [-0.664392    0.67557648  0.31965557]
+     [-0.55299875  0.76729572  0.32473013]
+     [-0.5044202   0.80037947  0.32396444]
+     [-0.50697264  0.77541588  0.3764425 ]
+     [-0.50487473  0.75924853  0.41066187]
+     [-0.53257145  0.71676055  0.45013549]
+     [-0.54586299  0.64801127  0.53114498]
+     [-0.54360735  0.59660668  0.59038253]
+     [-0.48712871  0.51516339  0.70520373]]
 
 
 
@@ -154,8 +170,8 @@ the GONI dataset and plotting the resulting spline curve on a world map.
     # fig, ax = plt.subplots(figsize=(14, 6))
 
     # # Load world shapefile
-    # world_path = load_world_map()
-    # world = gpd.read_file(world_path)
+    world_path = load_world_map()
+    world = gpd.read_file(world_path)
 
     # # World map
     # world.plot(ax=ax, color="antiquewhite", edgecolor="gray")
@@ -227,7 +243,7 @@ the GONI dataset and plotting the resulting spline curve on a world map.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 43.587 seconds)
+   **Total running time of the script:** (0 minutes 43.671 seconds)
 
 
 .. _sphx_glr_download_auto_examples_goni.py:
