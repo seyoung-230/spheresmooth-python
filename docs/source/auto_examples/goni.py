@@ -107,78 +107,46 @@ goni_df = pd.DataFrame({
 })
 
 
-# # ----------------------------------------------------
-# # 8. Figure 1: World map + GONI + fitted curve
-# # ----------------------------------------------------
-# fig, ax = plt.subplots(figsize=(14, 6))
+# ----------------------------------------------------
+# 8. Figure: World map + GONI + fitted curve (single figure)
+# ----------------------------------------------------
+import geopandas as gpd
+import matplotlib.pyplot as plt
 
-# # Load world shapefile
+# Load world shapefile
 world_path = load_world_map()
 world = gpd.read_file(world_path)
 
-# # World map
-# world.plot(ax=ax, color="antiquewhite", edgecolor="gray")
-
-# # Raw GONI data
-# ax.scatter(
-#     goni_df["longitude"], goni_df["latitude"],
-#     s=3, color="black", label="GONI data"
-# )
-
-# # Control points
-# ax.scatter(
-#     cp_df["longitude"], cp_df["latitude"],
-#     s=50, color="blue", marker="s", label="Control points"
-# )
-
-# # Fitted spline curve
-# ax.plot(
-#     curve_df["longitude"], curve_df["latitude"],
-#     color="red", linewidth=1.5, label="Spline curve"
-# )
-
-# ax.set_xlabel("longitude")
-# ax.set_ylabel("latitude")
-# ax.set_title("GONI Data + Control Points + Fitted Spherical Spline")
-# ax.legend()
-
-# plt.show()  
-
-
-
-# ----------------------------------------------------
-# 9. Figure 2: Zoom-in (East Asia)
-# ----------------------------------------------------
-fig2, ax2 = plt.subplots(figsize=(14, 10))
+fig, ax = plt.subplots(figsize=(14, 10))
 
 # World map
-world.plot(ax=ax2, color="antiquewhite", edgecolor="gray")
+world.plot(ax=ax, color="antiquewhite", edgecolor="gray")
 
 # Raw GONI data
-ax2.scatter(
+ax.scatter(
     goni_df["longitude"], goni_df["latitude"],
     s=5, color="black", label="GONI data"
 )
 
 # Control points
-ax2.scatter(
+ax.scatter(
     cp_df["longitude"], cp_df["latitude"],
     s=60, color="blue", marker="s", label="Control points"
 )
 
 # Fitted spline curve
-ax2.plot(
+ax.plot(
     curve_df["longitude"], curve_df["latitude"],
     color="red", linewidth=2, label="Spline curve"
 )
 
 # Zoom bounds (East Asia)
-ax2.set_xlim(100, 170)
-ax2.set_ylim(-10, 65)
+ax.set_xlim(100, 170)
+ax.set_ylim(-10, 65)
 
-ax2.set_xlabel("longitude")
-ax2.set_ylabel("latitude")
-ax2.set_title("Zoomed-in Region: East Asia")
-ax2.legend()
+ax.set_xlabel("Longitude")
+ax.set_ylabel("Latitude")
+ax.set_title("Zoomed-in Region: East Asia (GONI Spherical Spline)")
+ax.legend()
 
-plt.show()   
+plt.show()

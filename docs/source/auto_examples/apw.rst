@@ -27,26 +27,14 @@ the Apparent Polar Wander (APW) path and plotting the result on a world map.
 .. image:: /_static/thumbnails/apw_thumb.png
    :class: sphx-glr-thumbimg
 
-.. GENERATED FROM PYTHON SOURCE LINES 11-169
+.. GENERATED FROM PYTHON SOURCE LINES 11-150
 
 
 
-.. rst-class:: sphx-glr-horizontal
-
-
-    *
-
-      .. image-sg:: /auto_examples/images/sphx_glr_apw_001.png
-         :alt: APW Data + Control Points + Fitted Spherical Spline
-         :srcset: /auto_examples/images/sphx_glr_apw_001.png
-         :class: sphx-glr-multi-img
-
-    *
-
-      .. image-sg:: /auto_examples/images/sphx_glr_apw_002.png
-         :alt: Zoomed-in Region: APW Spherical Spline
-         :srcset: /auto_examples/images/sphx_glr_apw_002.png
-         :class: sphx-glr-multi-img
+.. image-sg:: /auto_examples/images/sphx_glr_apw_001.png
+   :alt: APW Data + Fitted Spherical Spline
+   :srcset: /auto_examples/images/sphx_glr_apw_001.png
+   :class: sphx-glr-single-img
 
 
 .. rst-class:: sphx-glr-script-out
@@ -179,69 +167,50 @@ the Apparent Polar Wander (APW) path and plotting the result on a world map.
 
 
     # ----------------------------------------------------
-    # 8. Plot world map + APW + spline curve
+    # 8. Plot world map + APW + spline curve (single figure)
     # ----------------------------------------------------
-    fig, ax = plt.subplots(figsize=(12, 8))
+    fig, ax = plt.subplots(figsize=(12, 10))
 
-    # 8-1. World map
+    # World map
     world_path = load_world_map()
     world = gpd.read_file(world_path)
     world.plot(ax=ax, color="antiquewhite", edgecolor="grey")
 
-    # 8-2. APW data, control points, spline curve
-    ax.scatter(apw_df["longitude"], apw_df["latitude"], s=3)
-    ax.scatter(cp_df["longitude"], cp_df["latitude"], s=50, c="blue", marker="s")
-    ax.plot(curve_df["longitude"], curve_df["latitude"], c="red", linewidth=1)
-
-    ax.set_xlabel("longitude")
-    ax.set_ylabel("latitude")
-    ax.set_title("APW Data + Control Points + Fitted Spherical Spline")
-
-    plt.show()
-
-    # ----------------------------------------------------
-    # 9. Zoom-in plot for APW (North Asia / Bering region)
-    # ----------------------------------------------------
-    fig2, ax2 = plt.subplots(figsize=(12, 10))
-
-    # World map
-    world.plot(ax=ax2, color="antiquewhite", edgecolor="grey")
-
     # Raw APW data
-    ax2.scatter(
+    ax.scatter(
         apw_df["longitude"], apw_df["latitude"],
         s=5, color="black", label="APW data"
     )
 
     # Control points
-    ax2.scatter(
+    ax.scatter(
         cp_df["longitude"], cp_df["latitude"],
         s=60, color="blue", marker="s", label="Control points"
     )
 
     # Fitted spline curve
-    ax2.plot(
+    ax.plot(
         curve_df["longitude"], curve_df["latitude"],
         c="red", linewidth=2, label="Spline curve"
     )
 
-    # -----------------------------------------
-    # Zoom region — adjust based on APW area
-    # -----------------------------------------
-    ax2.set_xlim(60, 230)   # longitude zoom range
-    ax2.set_ylim(55, 95)    # latitude zoom range
+    # ---------------------------
+    # Zoom region
+    # ---------------------------
+    ax.set_xlim(60, 230)
+    ax.set_ylim(45, 95)
 
-    ax2.set_xlabel("longitude")
-    ax2.set_ylabel("latitude")
-    ax2.set_title("Zoomed-in Region: APW Spherical Spline")
-    ax2.legend()
+    ax.set_xlabel("Longitude")
+    ax.set_ylabel("Latitude")
+    ax.set_title("APW Data + Fitted Spherical Spline")
+    ax.legend()
 
     plt.show()
 
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 52.586 seconds)
+   **Total running time of the script:** (0 minutes 50.755 seconds)
 
 
 .. _sphx_glr_download_auto_examples_apw.py:

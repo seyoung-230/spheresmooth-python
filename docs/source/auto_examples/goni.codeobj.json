@@ -1,5 +1,5 @@
 {
- "ax2": [
+ "ax": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -22,7 +22,7 @@
    "name": "Axes"
   }
  ],
- "ax2.legend": [
+ "ax.legend": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -80,7 +80,7 @@
    "name": "Artist.legend"
   }
  ],
- "ax2.plot": [
+ "ax.plot": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -138,7 +138,7 @@
    "name": "Artist.plot"
   }
  ],
- "ax2.scatter": [
+ "ax.scatter": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -196,7 +196,7 @@
    "name": "Artist.scatter"
   }
  ],
- "ax2.set_title": [
+ "ax.set_title": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -254,7 +254,7 @@
    "name": "Artist.set_title"
   }
  ],
- "ax2.set_xlabel": [
+ "ax.set_xlabel": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -312,7 +312,7 @@
    "name": "Artist.set_xlabel"
   }
  ],
- "ax2.set_xlim": [
+ "ax.set_xlim": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -370,7 +370,7 @@
    "name": "Artist.set_xlim"
   }
  ],
- "ax2.set_ylabel": [
+ "ax.set_ylabel": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -428,7 +428,7 @@
    "name": "Artist.set_ylabel"
   }
  ],
- "ax2.set_ylim": [
+ "ax.set_ylim": [
   {
    "is_class": false,
    "is_explicit": false,
@@ -622,7 +622,7 @@
    "name": "int"
   }
  ],
- "fig2": [
+ "fig": [
   {
    "is_class": false,
    "is_explicit": false,

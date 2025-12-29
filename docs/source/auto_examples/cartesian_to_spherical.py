@@ -1,8 +1,8 @@
 """
-Cartesian → Spherical Example 1
+Cartesian to Spherical Conversion Example
 ===============================
 
-This example converts two 3D Cartesian points into spherical coordinates.
+Convert Cartesian coordinates to spherical coordinates (theta, phi).
 """
 
 import numpy as np

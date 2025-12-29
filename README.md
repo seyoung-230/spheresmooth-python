@@ -23,7 +23,7 @@ pip install -e .
 
 | Package | Version (recommended) | Description |
 |--------|------------------------|-------------|
-| Python | 3.10+                   | Core language requirement |
+| Python | 3.9+                   | Core language requirement |
 | NumPy  | >= 1.24                | Numerical computations |
 | pandas | >= 1.5                 | Internal data loading and handling (`import pandas as pd`) |
 | importlib.resources | stdlib (Python ≥ 3.9) | Access to packaged data files |
@@ -66,17 +66,6 @@ pip install spheresmooth
 - Full Riemannian optimization is currently under development  
 
 
-## Documentation
-
-Documentation is generated using **Sphinx + Sphinx-Gallery**.
-
-```
-cd docs
-python -m sphinx -b html source build/html
-```
-
----
-
 ## Example
 
 ```python
@@ -93,14 +82,3 @@ print(theta_phi)
 ```
 
 ---
-
-## Example Gallery
-
-Examples live in:
-
-```
-docs/source/gallery/
-```
-
----
-

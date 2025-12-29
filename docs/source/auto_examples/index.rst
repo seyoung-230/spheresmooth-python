@@ -167,23 +167,6 @@ This section contains example usage of the spheresmooth package.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="Basic axes-aligned points example.">
-
-.. only:: html
-
-  .. image:: /auto_examples/images/thumb/sphx_glr_cartesian_to_spherical_02_thumb.png
-    :alt:
-
-  :ref:`sphx_glr_auto_examples_cartesian_to_spherical_02.py`
-
-.. raw:: html
-
-      <div class="sphx-glr-thumbnail-title">Cartesian → Spherical Example 2</div>
-    </div>
-
-
-.. raw:: html
-
     <div class="sphx-glr-thumbcontainer" tooltip="Convert spherical coordinates (theta, phi) to Cartesian coordinates.">
 
 .. only:: html
@@ -201,18 +184,18 @@ This section contains example usage of the spheresmooth package.
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example converts two 3D Cartesian points into spherical coordinates.">
+    <div class="sphx-glr-thumbcontainer" tooltip="Convert Cartesian coordinates to spherical coordinates (theta, phi).">
 
 .. only:: html
 
-  .. image:: /auto_examples/images/thumb/sphx_glr_cartesian_to_spherical_01_thumb.png
+  .. image:: /auto_examples/images/thumb/sphx_glr_cartesian_to_spherical_thumb.png
     :alt:
 
-  :ref:`sphx_glr_auto_examples_cartesian_to_spherical_01.py`
+  :ref:`sphx_glr_auto_examples_cartesian_to_spherical.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Cartesian → Spherical Example 1</div>
+      <div class="sphx-glr-thumbnail-title">Cartesian to Spherical Conversion Example</div>
     </div>
 
 
@@ -303,9 +286,8 @@ This section contains example usage of the spheresmooth package.
    /auto_examples/cross
    /auto_examples/knots_quantile
    /auto_examples/geodesic_lower
-   /auto_examples/cartesian_to_spherical_02
    /auto_examples/spherical_to_cartesian
-   /auto_examples/cartesian_to_spherical_01
+   /auto_examples/cartesian_to_spherical
    /auto_examples/geodesic
    /auto_examples/piecewise_geodesic
    /auto_examples/apw
