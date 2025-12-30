@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "spheresmooth"
 version = "0.1.0"
 description = "Geometry-aware spline smoothing and geodesic modeling for spherical data in Python"
+license = "GPL-3.0-or-later"
 authors = [
   {name = "Se-Young Lee", email = "sudang0404@gmail.com" },
   { name = "Kwan-Young Bak", email = "kybak@sungshin.ac.kr" }
@@ -26,7 +27,6 @@ viz = [
   "geopandas>=0.13"
 ]
 
-license = {text = "GPL-3.0-or-later"}
 
 [project.urls]
 Homepage = "https://github.com/seyoung-230/spheresmooth-python"
@@ -38,3 +38,6 @@ spheresmooth = ["data/*.csv",
                 "data/world/*.shx",
                 "data/world/*.prj",
                 "data/world/*.cpg",]
+
+[tool.setuptools.packages.find]
+exclude = ["assets"]
