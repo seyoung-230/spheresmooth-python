@@ -159,7 +159,7 @@ fit = ss.penalized_linear_spherical_spline(
 
 ### APW Spherical Spline Example
 
-![APW spherical spline example](https://raw.githubusercontent.com/seyoung-230/spheresmooth-python/main/assets/apw_fugure.png)
+![APW spherical spline example](https://raw.githubusercontent.com/seyoung-230/spheresmooth-python/assets/apw_figure.png)
 
 ### Interpretation
 
