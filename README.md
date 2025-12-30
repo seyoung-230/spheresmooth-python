@@ -7,8 +7,19 @@ This project is a work-in-progress port of the original R implementation, with m
 
 ---
 
+## motivation
+
+Spherical data arise naturally in many scientific fields, including geophysics, meteorology, biomechanics, computer vision, and robotics.
+Standard Euclidean smoothing methods often fail to respect the intrinsic geometry of the sphere, leading to distorted trajectories and inaccurate inference.
+
+`spheresmooth` aims to provide geometry-aware tools for analyzing spherical data directly on the unit sphere, avoiding ad hoc projections to Euclidean space.
+
+---
+
 ## License
+
 GPL-3
+
 ---
 
 ## Installation
@@ -65,20 +76,20 @@ pip install spheresmooth[viz]
 
 ## Features
 
-### ✔ Coordinate Transformations
+### Coordinate Transformations
 - Convert Cartesian ↔ Spherical coordinates  
 - Batch processing with NumPy  
 - Consistent handling of row-wise/column-wise inputs  
 
-### ✔ Geometry Utilities
+### Geometry Utilities
 - Compute geodesics on the sphere  
 - Normalize vectors  
 - Spherical distance functions  
 - Projection and gradient operators  
 
-### ✔ Smoothing Functions (In Progress)
+### Smoothing Functions (In Progress)
 - Penalized piecewise geodesic spline smoothing  
-- R function `penalized_linear_spherical_spline()`의 Python 버전 구조 구현 완료  
+- Python implementation of the structure of the R function `penalized_linear_spherical_spline()`  
 - Full Riemannian optimization is currently under development  
 
 
@@ -98,3 +109,68 @@ print(theta_phi)
 ```
 
 ---
+
+## APW Spherical Spline Example
+
+The following example demonstrates how to fit a penalized spherical spline to
+the **Apparent Polar Wander (APW)** path and visualize the result on a world map.
+
+The APW dataset consists of time-indexed observations on the unit sphere,
+represented in spherical coordinates \((\theta, \phi)\).
+
+### Workflow Overview
+
+1. Load spherical APW data \((\theta, \phi)\)
+2. Convert spherical coordinates to Cartesian coordinates on the unit sphere
+3. Select knot locations using quantiles of the time variable
+4. Fit a penalized piecewise geodesic spline using BIC-based model selection
+5. Convert fitted control points back to spherical coordinates
+6. Evaluate the fitted geodesic curve and visualize it on a world map
+
+### Example Code (Simplified)
+
+```python
+import spheresmooth as ss
+import numpy as np
+
+# Load APW data: columns = (t, theta, phi)
+apw = ss.load_apw()
+t = apw.iloc[:, 0].values
+spherical = apw.iloc[:, 1:3].values
+
+# Spherical → Cartesian
+y = ss.spherical_to_cartesian(spherical)
+
+# Knot selection
+dimension = 15
+knots = ss.knots_quantile(t, dimension)
+lambdas = np.exp(np.linspace(np.log(1e-7), np.log(1), 40))
+
+# Penalized spherical spline fit
+fit = ss.penalized_linear_spherical_spline(
+    t=t,
+    y=y,
+    dimension=dimension,
+    initial_knots=knots,
+    lambdas=lambdas
+)
+
+```
+
+### APW Spherical Spline Example
+
+![APW spherical spline example](https://raw.githubusercontent.com/seyoung-230/spheresmooth-python/main/assets/apw_fugure.png)
+
+### Interpretation
+
+The fitted model represents the APW trajectory as a sequence of connected
+great-circle segments on the unit sphere.
+A sparsity-inducing penalty controls changes in velocity between segments,
+resulting in a smooth yet geometry-respecting trajectory.
+
+The smoothing parameter lambda is selected using the Bayesian Information
+Criterion (BIC), balancing goodness-of-fit and model complexity.
+
+This example illustrates how `spheresmooth` performs intrinsic smoothing
+directly on the sphere, avoiding ad hoc Euclidean projections.
+
