@@ -5,9 +5,13 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "spheresmooth"
 version = "0.1.0"
-description = "Piecewise geodesic smoothing for spherical data (Python port)"
+description = "Geometry-aware spline smoothing and geodesic modeling for spherical data in Python"
 authors = [
-  {name = "seyoung lee", email = "you@example.com"}
+  {name = "Se-Young Lee", email = "sudang0404@gmail.com" },
+  { name = "Kwan-Young Bak", email = "kybak@sungshin.ac.kr" }
+]
+maintainers = [
+  { name = "Se-Young Lee", email = "sudang0404@gmail.com" }
 ]
 readme = "README.md"
 requires-python = ">=3.9"

@@ -7,6 +7,14 @@ This project is a work-in-progress port of the original R implementation, with m
 
 ---
 
+## Authors
+
+- **Se-Young Lee**, Sungshin Women’s University  
+  Email: 220254005@sungshin.ac.kr
+
+- **Kwan-Young Bak**, Sungshin Women’s University  
+  Email: kybak@sungshin.ac.kr  
+
 ## motivation
 
 Spherical data arise naturally in many scientific fields, including geophysics, meteorology, biomechanics, computer vision, and robotics.
@@ -116,11 +124,11 @@ The following example demonstrates how to fit a penalized spherical spline to
 the **Apparent Polar Wander (APW)** path and visualize the result on a world map.
 
 The APW dataset consists of time-indexed observations on the unit sphere,
-represented in spherical coordinates \((\theta, \phi)\).
+represented in spherical coordinates \((theta, phi)\).
 
 ### Workflow Overview
 
-1. Load spherical APW data \((\theta, \phi)\)
+1. Load spherical APW data \((theta, phi)\)
 2. Convert spherical coordinates to Cartesian coordinates on the unit sphere
 3. Select knot locations using quantiles of the time variable
 4. Fit a penalized piecewise geodesic spline using BIC-based model selection
