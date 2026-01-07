@@ -7,6 +7,12 @@ This project is a work-in-progress port of the original R implementation, with m
 
 ---
 
+## Documentation
+
+Full documentation is available at:
+
+https://seyoung-230.github.io/spheresmooth-python/
+
 ## Authors
 
 - **Se-Young Lee**, Sungshin Women’s University  
