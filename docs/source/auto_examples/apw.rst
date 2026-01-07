@@ -49,7 +49,7 @@ the Apparent Polar Wander (APW) path and plotting the result on a world map.
      [-0.07458957  0.22358783  0.97182554]
      [-0.07418727  0.22529426  0.97146217]
      [-0.0415261   0.16843219  0.98483815]
-     [-0.02021257  0.17445605  0.98445748]
+     [-0.02021256  0.17445605  0.98445748]
      [ 0.06310967  0.32686588  0.94296122]
      [ 0.02050204  0.37587383  0.92644403]
      [ 0.00531943  0.39425323  0.91898645]
@@ -210,7 +210,7 @@ the Apparent Polar Wander (APW) path and plotting the result on a world map.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 50.755 seconds)
+   **Total running time of the script:** (1 minutes 7.421 seconds)
 
 
 .. _sphx_glr_download_auto_examples_apw.py:
