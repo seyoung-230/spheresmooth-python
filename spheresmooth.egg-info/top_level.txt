@@ -2,4 +2,3 @@ dist
 docs
 spheresmooth
 test
-venv

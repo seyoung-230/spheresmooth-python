@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "spheresmooth"
-version = "0.1.0"
+version = "0.1.1"
 description = "Geometry-aware spline smoothing and geodesic modeling for spherical data in Python"
 license = "GPL-3.0-or-later"
 authors = [

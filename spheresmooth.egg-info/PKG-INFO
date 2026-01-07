@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: spheresmooth
-Version: 0.1.0
+Version: 0.1.1
 Summary: Geometry-aware spline smoothing and geodesic modeling for spherical data in Python
 Author-email: Se-Young Lee <sudang0404@gmail.com>, Kwan-Young Bak <kybak@sungshin.ac.kr>
 Maintainer-email: Se-Young Lee <sudang0404@gmail.com>
@@ -22,6 +22,12 @@ The library provides utilities for coordinate transforms, geodesics, and penaliz
 This project is a work-in-progress port of the original R implementation, with many components rewritten in clean, modular Python.
 
 ---
+
+## Documentation
+
+Full documentation is available at:
+
+https://seyoung-230.github.io/spheresmooth-python/
 
 ## Authors
 
@@ -183,7 +189,7 @@ fit = ss.penalized_linear_spherical_spline(
 
 ### APW Spherical Spline Example
 
-![APW spherical spline example](https://github.com/seyoung-230/spheresmooth-python/blob/main/assets/apw_figure.png)
+![APW spherical spline example](https://github.com/seyoung-230/spheresmooth-python/blob/main/assets/apw_figure.png?raw=1)
 
 ### Interpretation
 
