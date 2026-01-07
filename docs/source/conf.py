@@ -41,6 +41,7 @@ html_theme_options = {
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
 }
 html_static_path = ['_static']
+html_baseurl = "https://seyoung-230.github.io/spheresmooth-python/"
 
 napoleon_numpy_docstring = True
 
