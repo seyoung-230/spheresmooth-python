@@ -69,6 +69,11 @@ Normalize each row of a matrix by dividing by its L2 norm.
     print(x_norm)
 
 
+.. rst-class:: sphx-glr-timing
+
+   **Total running time of the script:** (0 minutes 0.002 seconds)
+
+
 .. _sphx_glr_download_auto_examples_normalize.py:
 
 .. only:: html

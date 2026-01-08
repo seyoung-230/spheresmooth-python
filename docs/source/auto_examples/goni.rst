@@ -211,7 +211,7 @@ the GONI dataset and plotting the resulting spline curve on a world map.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 42.730 seconds)
+   **Total running time of the script:** (0 minutes 42.611 seconds)
 
 
 .. _sphx_glr_download_auto_examples_goni.py:

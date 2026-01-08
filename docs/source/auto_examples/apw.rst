@@ -210,7 +210,7 @@ the Apparent Polar Wander (APW) path and plotting the result on a world map.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (1 minutes 7.421 seconds)
+   **Total running time of the script:** (0 minutes 53.732 seconds)
 
 
 .. _sphx_glr_download_auto_examples_apw.py:

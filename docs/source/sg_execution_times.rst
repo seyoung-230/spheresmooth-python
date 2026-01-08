@@ -6,7 +6,7 @@
 
 Computation times
 =================
-**01:50.442** total execution time for 15 files **from all galleries**:
+**01:36.647** total execution time for 15 files **from all galleries**:
 
 .. container::
 
@@ -33,22 +33,31 @@ Computation times
      - Time
      - Mem (MB)
    * - :ref:`sphx_glr_auto_examples_apw.py` (``gallery\apw.py``)
-     - 01:07.421
+     - 00:53.732
      - 0.0
    * - :ref:`sphx_glr_auto_examples_goni.py` (``gallery\goni.py``)
-     - 00:42.730
+     - 00:42.611
      - 0.0
    * - :ref:`sphx_glr_auto_examples_piecewise_geodesic.py` (``gallery\piecewise_geodesic.py``)
-     - 00:00.288
+     - 00:00.282
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical.py` (``gallery\cartesian_to_spherical.py``)
-     - 00:00.001
+   * - :ref:`sphx_glr_auto_examples_knots_quantile.py` (``gallery\knots_quantile.py``)
+     - 00:00.016
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_normalize.py` (``gallery\normalize.py``)
+     - 00:00.002
      - 0.0
    * - :ref:`sphx_glr_auto_examples_spherical_dist.py` (``gallery\spherical_dist.py``)
+     - 00:00.002
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_normalize_lower.py` (``gallery\normalize_lower.py``)
+     - 00:00.002
+     - 0.0
+   * - :ref:`sphx_glr_auto_examples_spherical_to_cartesian.py` (``gallery\spherical_to_cartesian.py``)
      - 00:00.001
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_geodesic_lower.py` (``gallery\geodesic_lower.py``)
-     - 00:00.001
+   * - :ref:`sphx_glr_auto_examples_cartesian_to_spherical.py` (``gallery\cartesian_to_spherical.py``)
+     - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_auto_examples_cross.py` (``gallery\cross.py``)
      - 00:00.000
@@ -62,18 +71,9 @@ Computation times
    * - :ref:`sphx_glr_auto_examples_geodesic.py` (``gallery\geodesic.py``)
      - 00:00.000
      - 0.0
-   * - :ref:`sphx_glr_auto_examples_knots_quantile.py` (``gallery\knots_quantile.py``)
+   * - :ref:`sphx_glr_auto_examples_geodesic_lower.py` (``gallery\geodesic_lower.py``)
      - 00:00.000
      - 0.0
    * - :ref:`sphx_glr_auto_examples_norm2.py` (``gallery\norm2.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_normalize.py` (``gallery\normalize.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_normalize_lower.py` (``gallery\normalize_lower.py``)
-     - 00:00.000
-     - 0.0
-   * - :ref:`sphx_glr_auto_examples_spherical_to_cartesian.py` (``gallery\spherical_to_cartesian.py``)
      - 00:00.000
      - 0.0

@@ -1,5 +1,22 @@
 README.md
 pyproject.toml
+docs/build/html/_downloads/067e9f7f37f91e191cfeb079eb4561cb/geodesic_lower.py
+docs/build/html/_downloads/0f009f474feca2e9b3cd6ed9bd8f3a2a/piecewise_geodesic.py
+docs/build/html/_downloads/109d9971e29245579eec36088ec78dcc/dot.py
+docs/build/html/_downloads/15a5ceb933d2b27bcc0a0167027d985c/spherical_dist.py
+docs/build/html/_downloads/19ce256e7a340ee1c406a49dc2c6b45d/cartesian_to_spherical_01.py
+docs/build/html/_downloads/1a239de9ef49aed0ce7dbb15c64091a1/normalize.py
+docs/build/html/_downloads/268f6a7fa2d07e4bc7b849d84933b259/knots_quantile.py
+docs/build/html/_downloads/3265cf6d341f22249f384ec9baac9dc2/goni.py
+docs/build/html/_downloads/3a9c92b2979a7ca9295e391a333e762c/cross.py
+docs/build/html/_downloads/5f1398a853a69c5789fc47c1f51072ac/normalize_lower.py
+docs/build/html/_downloads/6484c4e175951334901f30fcb5706ee2/spherical_to_cartesian.py
+docs/build/html/_downloads/8bfd433c2c4d2e4ed4815ddcc5763a56/cartesian_to_spherical.py
+docs/build/html/_downloads/a821c2298bdff34450b1eebf325dd829/apw.py
+docs/build/html/_downloads/b9da9c2bf96b9ad25a963926297e1af9/geodesic.py
+docs/build/html/_downloads/e2726be2aadf0ea21009291172f5d341/norm2.py
+docs/build/html/_downloads/f0501feba9267f8bded64ee72778dae9/exp_map.py
+docs/build/html/_downloads/f7b9e79dcb6798534d38c21261ca8925/cartesian_to_spherical_02.py
 docs/source/conf.py
 docs/source/auto_examples/apw.py
 docs/source/auto_examples/cartesian_to_spherical.py
@@ -56,3 +73,4 @@ test/test.py
 test/test2.py
 test/test3_apw.py
 test/test4_goni.py
+test/test5.py

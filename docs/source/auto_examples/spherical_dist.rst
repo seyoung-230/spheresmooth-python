@@ -69,7 +69,7 @@ Compute the spherical distance between two vectors on the unit sphere.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** (0 minutes 0.001 seconds)
+   **Total running time of the script:** (0 minutes 0.002 seconds)
 
 
 .. _sphx_glr_download_auto_examples_spherical_dist.py:
