@@ -172,8 +172,6 @@ def exp_map(x, v):
         if sum(v^2) == 0: return(x)
         Exp = cos(norm_v) * x + sin(norm_v) * v / norm_v
 
-    R 패키지 특성을 고려해 tangent-plane projection은 수행하지 않는다.
-
     Parameters
     ----------
     x : array-like (3,)

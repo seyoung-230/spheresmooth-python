@@ -1,4 +1,4 @@
-# spheresmooth (Python) 230
+# spheresmooth (Python) 
 
 A Python port of the **spheresmooth** R package for spherical geometry and spline smoothing on the unit sphere.  
 The library provides utilities for coordinate transforms, geodesics, and penalized spherical smoothing using piecewise geodesic splines.
