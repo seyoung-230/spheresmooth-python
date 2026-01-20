@@ -3,7 +3,7 @@
 A Python port of the **spheresmooth** R package for spherical geometry and spline smoothing on the unit sphere.  
 The library provides utilities for coordinate transforms, geodesics, and penalized spherical smoothing using piecewise geodesic splines.
 
-This project is a work-in-progress port of the original R implementation, with many components rewritten in clean, modular Python.
+This project is a Python implementation of the original R package, with core components rewritten in a clean, modular, and extensible Python design.
 
 ---
 
@@ -21,7 +21,7 @@ https://seyoung-230.github.io/spheresmooth-python/
 - **Kwan-Young Bak**, Sungshin Women’s University  
   Email: kybak@sungshin.ac.kr  
 
-## motivation
+## Motivation
 
 Spherical data arise naturally in many scientific fields, including geophysics, meteorology, biomechanics, computer vision, and robotics.
 Standard Euclidean smoothing methods often fail to respect the intrinsic geometry of the sphere, leading to distorted trajectories and inaccurate inference.
@@ -87,6 +87,10 @@ pip install spheresmooth[viz]
 ```
 
 ---
+
+## Source code structure
+The source code of the package is contained in the `spheresmooth/` directory,
+following standard Python packaging conventions.
 
 ## Features
 
