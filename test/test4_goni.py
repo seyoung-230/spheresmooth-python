@@ -50,6 +50,9 @@ knots = best_fit["knots"]
 print(fit["dimension_list"][best_index])
 print("dimension_list:", fit["dimension_list"])
 
+dim = fit["dimension_list"][best_index]
+print(dim)
+
 print("Best λ index:", best_index)
 print("Control points (cartesian):")
 print(control_points)
@@ -114,11 +117,19 @@ fig, ax = plt.subplots(figsize=(12, 8))
 world.plot(ax=ax, color="antiquewhite", edgecolor="grey")
 g_goni.plot(ax=ax, markersize=3)
 g_cp.plot(ax=ax, markersize=50, color="blue", marker="s")
-g_curve.plot(ax=ax, markersize=1, color="red")
+# g_curve.plot(ax=ax, markersize=1, color="red")
 
-ax.set_xlabel("longitude")
-ax.set_ylabel("latitude")
+ax.plot(
+    curve_df.longitude.values,
+    curve_df.latitude.values,
+    color="red",
+    linewidth=2
+)
+
+ax.set_xlabel("longitude", fontsize=20)
+ax.set_ylabel("latitude", fontsize=20)
 
 plt.title("goni Data + Control Points + Fitted Spherical Spline")
+ax.set_title("goni Data + Control Points + Fitted Spherical Spline", fontsize=24)
 plt.show()
 

@@ -21,7 +21,7 @@ apw_cartesian = ss.spherical_to_cartesian(spherical)
 # ----------------------------------------------------
 # 3. Quantile knots
 # ----------------------------------------------------
-dimension = 15
+dimension = 20
 initial_knots = ss.knots_quantile(t, dimension)
 
 # lambda sequence
@@ -45,6 +45,9 @@ best_index = np.argmin(bic_list)
 best_fit = fits[best_index]
 control_points = best_fit["control_points"]
 knots = best_fit["knots"]
+
+dim = best_fit["dimension"]
+print(dim)
 
 print("Best λ index:", best_index)
 print("Control points (cartesian):")
@@ -110,10 +113,18 @@ fig, ax = plt.subplots(figsize=(12, 8))
 world.plot(ax=ax, color="antiquewhite", edgecolor="grey")
 g_apw.plot(ax=ax, markersize=3)
 g_cp.plot(ax=ax, markersize=50, color="blue", marker="s")
-g_curve.plot(ax=ax, markersize=1, color="red")
+# g_curve.plot(ax=ax, markersize=1, color="red")
 
-ax.set_xlabel("longitude")
-ax.set_ylabel("latitude")
+ax.plot(
+    curve_df.longitude.values,
+    curve_df.latitude.values,
+    color="red",
+    linewidth=2
+)
+
+ax.set_xlabel("longitude", fontsize=20)
+ax.set_ylabel("latitude", fontsize=20)
 
 plt.title("APW Data + Control Points + Fitted Spherical Spline")
+ax.set_title("APW Data + Control Points + Fitted Spherical Spline", fontsize=24)
 plt.show()
