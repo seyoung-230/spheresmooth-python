@@ -105,29 +105,29 @@ from .coords import cartesian_to_spherical
 
 def edp(p: np.ndarray) -> np.ndarray:
     """
-    Equal-distance projection (EDP) of a point onto the xy-plane.
-    
-    This is a direct translation of the R function:
+    Equal-distance projection (EDP) of a point on the unit sphere
+    onto the tangent plane at the north pole.
 
-        edp = function(p) {
-            theta_phi = cartesian_to_spherical(p)
-            theta = theta_phi[1]
-            phi = theta_phi[2]
-            x = theta * cos(phi)
-            y = theta * sin(phi)
-            projection_p = c(x, y)
-            return(projection_p)
-        }
+    This function converts a Cartesian point on the sphere to
+    spherical coordinates (theta, phi) and maps it to the plane via
+
+        x = theta * cos(phi)
+        y = theta * sin(phi)
+
+    which preserves geodesic distance from the north pole.
+
+    This implementation follows the original R function in the
+    spheresmooth package.
 
     Parameters
     ----------
     p : ndarray, shape (3,)
-        Point in Cartesian coordinates.
+        Point on the unit sphere in Cartesian coordinates.
 
     Returns
     -------
     ndarray, shape (2,)
-        (x, y) coordinates after equal-distance projection.
+        Coordinates on the tangent plane after equal-distance projection.
     """
 
     p = np.asarray(p, float)
