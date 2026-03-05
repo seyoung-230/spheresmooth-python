@@ -55,11 +55,15 @@ def calculate_loss(y: np.ndarray, gamma: np.ndarray) -> float:
     """
     y = np.asarray(y, float)
     gamma = np.asarray(gamma, float)
-    
-    dists = np.array([
-        spherical_dist(y[i], gamma[i])**2
-        for i in range(y.shape[0])
-    ])
+
+    # dot product for each pair
+    dots = np.sum(y * gamma, axis=1)
+
+    # numerical stability (same role as restrict() in R)
+    dots = np.clip(dots, -1.0, 1.0)
+
+    # spherical distance squared
+    dists = np.arccos(dots)**2
 
     return 0.5 * np.sum(dists)
 

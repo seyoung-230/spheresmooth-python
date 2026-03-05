@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: spheresmooth
-Version: 0.1.1
+Version: 0.1.2
 Summary: Geometry-aware spline smoothing and geodesic modeling for spherical data in Python
 Author-email: Se-Young Lee <sudang0404@gmail.com>, Kwan-Young Bak <kybak@sungshin.ac.kr>
 Maintainer-email: Se-Young Lee <sudang0404@gmail.com>
@@ -8,18 +8,20 @@ License-Expression: GPL-3.0-or-later
 Project-URL: Homepage, https://github.com/seyoung-230/spheresmooth-python
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
+License-File: LICENSE
 Requires-Dist: numpy>=1.24
 Requires-Dist: pandas>=1.5
 Provides-Extra: viz
 Requires-Dist: matplotlib>=3.7; extra == "viz"
 Requires-Dist: geopandas>=0.13; extra == "viz"
+Dynamic: license-file
 
 # spheresmooth (Python) 
 
 A Python port of the **spheresmooth** R package for spherical geometry and spline smoothing on the unit sphere.  
 The library provides utilities for coordinate transforms, geodesics, and penalized spherical smoothing using piecewise geodesic splines.
 
-This project is a work-in-progress port of the original R implementation, with many components rewritten in clean, modular Python.
+This project is a Python implementation of the original R package, with core components rewritten in a clean, modular, and extensible Python design.
 
 ---
 
@@ -37,7 +39,7 @@ https://seyoung-230.github.io/spheresmooth-python/
 - **Kwan-Young Bak**, Sungshin Women’s University  
   Email: kybak@sungshin.ac.kr  
 
-## motivation
+## Motivation
 
 Spherical data arise naturally in many scientific fields, including geophysics, meteorology, biomechanics, computer vision, and robotics.
 Standard Euclidean smoothing methods often fail to respect the intrinsic geometry of the sphere, leading to distorted trajectories and inaccurate inference.
@@ -103,6 +105,10 @@ pip install spheresmooth[viz]
 ```
 
 ---
+
+## Source code structure
+The source code of the package is contained in the `spheresmooth/` directory,
+following standard Python packaging conventions.
 
 ## Features
 

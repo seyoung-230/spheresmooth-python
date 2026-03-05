@@ -134,7 +134,9 @@ def edp(p: np.ndarray) -> np.ndarray:
     if p.shape != (3,):
         raise ValueError("p must be a 3-dimensional vector.")
 
-    theta, phi = cartesian_to_spherical(p)
+    theta_phi = cartesian_to_spherical(p)
+    theta = theta_phi[0, 0]
+    phi   = theta_phi[0, 1]
 
     x = theta * np.cos(phi)
     y = theta * np.sin(phi)
